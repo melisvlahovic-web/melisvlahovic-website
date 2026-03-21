@@ -1,0 +1,1756 @@
+<!doctype html>
+<html lang="en" class="preload">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Melis Vlahović — Mezzosopran</title>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const showPage = () => root.classList.remove('preload');
+
+      if ('fonts' in document) {
+        Promise.race([
+          document.fonts.ready,
+          new Promise(resolve => setTimeout(resolve, 1200))
+        ]).then(showPage);
+      } else {
+        window.addEventListener('load', showPage);
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=block" rel="stylesheet">
+
+  <link rel="preload" as="image" href="images/bg.jpg?v=20251103">
+
+  <meta name="description"
+        content="Croatian mezzo-soprano Melis Vlahović — opera and concert repertoire including Mahagonny, Dialogues des Carmélites and Orfeo ed Euridice." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Melis Vlahović — Mezzosopran" />
+  <meta property="og:description"
+        content="Opera and concert mezzo-soprano. Performances at Staatsoper Stuttgart, Wilhelma Theater Stuttgart, Kammeroper Weißenhorn and more." />
+  <meta property="og:image" content="https://your-domain.com/images/bio.jpg?v=20251103" />
+  <meta property="og:url" content="https://your-domain.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Melis Vlahović — Mezzosopran" />
+  <meta name="twitter:description"
+        content="Opera and concert mezzo-soprano." />
+  <meta name="twitter:image" content="https://your-domain.com/images/bio.jpg?v=20251103" />
+
+  <style>
+  :root {
+    --text: #eef2f6;
+    --muted: #88a4af;
+    --surface-glass: rgba(15,25,30,0.6);
+    --surface-border: rgba(255,255,255,0.08);
+    --radius: 16px;
+    --shadow-strong: 0 25px 40px rgba(0,0,0,0.8);
+    --shadow-soft: 0 10px 30px rgba(0,0,0,.35);
+    --accent-border: rgba(255,255,255,0.25);
+    --accent-bg: rgba(255,255,255,0.08);
+    --accent-bg-hover: rgba(255,255,255,0.15);
+    --maxw: 1080px;
+    --font-sans: "Josefin Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    --font-elegant: "Didot","Bodoni MT","Times New Roman",serif;
+
+    --lang-btn-bg: radial-gradient(circle at 20% 20%, rgba(40,77,93,0.9) 0%, rgba(10,26,34,0.8) 60%);
+    --lang-btn-border: rgba(40,77,93,0.5);
+    --lang-btn-text: #eef2f6;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    scroll-behavior: smooth;
+    margin: 0;
+  }
+
+  html.preload body {
+    opacity: 0;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--text);
+    background:
+      radial-gradient(circle at 30% 20%, rgba(84,141,150,0.18) 0%, rgba(0,0,0,0) 60%),
+      radial-gradient(circle at 70% 80%, rgba(13,31,38,0.8) 0%, rgba(0,0,0,0) 70%),
+      radial-gradient(circle at 50% 50%, rgba(9,20,26,0.9) 0%, rgba(0,0,0,0) 75%),
+      linear-gradient(145deg, #0a1a22 0%, #122f34 25%, #1d3a40 40%, #284d5d 65%, #3a5f6d 80%, #436c7a 100%);
+    background-attachment: fixed;
+    background-color: #0a1a22;
+    -webkit-font-smoothing: antialiased;
+    transition: opacity .28s ease;
+  }
+
+  a { color: inherit; text-decoration-thickness: .08em; text-underline-offset: .18em; }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+  }
+
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+  header.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background: rgba(15,20,25,0.6);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  }
+
+  .nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 0;
+    text-align: center;
+    position: relative;
+  }
+
+  nav.top-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav.top-nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-size: .8rem;
+    padding: 8px 0;
+  }
+
+  nav.top-nav a:hover, nav.top-nav a:focus { color: var(--muted); }
+
+  .nav-right-row {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .lang-switcher-top {
+    border-radius: 999px;
+    padding: 6px 10px;
+    background: var(--lang-btn-bg);
+    border: 1px solid var(--lang-btn-border);
+    color: var(--lang-btn-text);
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-size: .7rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  }
+
+  .lang-switcher-top button {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0 4px;
+  }
+
+  .lang-switcher-top button.active {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .hero {
+    position: relative;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(11,28,38,0.4) 0%, rgba(29,58,64,0.3) 40%, rgba(40,77,93,0.3) 70%, rgba(67,108,122,0.3) 100%),
+      url("images/bg.jpg?v=20251103");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    min-height: 110vh;
+    display: flex;
+    align-items: center;
+    padding-bottom: 120px;
+    font-family: var(--font-sans);
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 260px;
+    background: linear-gradient(
+      to bottom,
+      rgba(10,26,34,0) 0%,
+      rgba(10,26,34,0.5) 40%,
+      rgba(10,26,34,0.85) 70%,
+      #0a1a22 100%
+    );
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    padding: 0 20px;
+    text-align: center;
+    color: var(--text);
+    text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  .hero-name-block {
+    text-transform: uppercase;
+    font-family: var(--font-sans);
+    line-height: 1.15;
+    letter-spacing: .14em;
+  }
+
+  .hero-name-main,
+  .hero-name-role {
+    display: block;
+    font-weight: 400;
+    color: #e4e7f0;
+    text-shadow:
+      0 1px 2px rgba(0,0,0,0.9),
+      0 0 18px rgba(0,0,0,0.8);
+  }
+
+  .hero-name-main {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    letter-spacing: .18em;
+    white-space: nowrap;
+  }
+
+  .hero-name-main .hero-initial {
+    font-size: 1.25em;
+    display: inline-block;
+  }
+
+  .hero-name-main .rest-name {
+    letter-spacing: .18em;
+  }
+
+  .hero-name-role {
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+    margin-top: 12px;
+    letter-spacing: .28em;
+    color: #d0d4de;
+  }
+
+  .hero-lines {
+    max-width: 480px;
+    margin: 28px auto 32px auto;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+    text-align: center;
+    letter-spacing: .05em;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 32px;
+  }
+
+  .btn {
+    appearance: none;
+    border: 0;
+    border-radius: 999px;
+    padding: 12px 18px;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(135deg, #c6a667, #8fb9ff);
+    color: #111;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.28);
+    letter-spacing: .2px;
+    min-width: 160px;
+    text-align: center;
+    text-decoration: none;
+    font-size: .9rem;
+    font-family: inherit;
+  }
+
+  .btn.secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: none;
+  }
+
+  section.std-section { padding: 80px 0 60px; }
+
+  section.std-section h2 {
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    text-align: center;
+    margin: 0 0 24px;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    font-weight: 500;
+    font-family: var(--font-sans);
+  }
+
+  #biography.std-section {
+    margin-top: -40px;
+    padding-top: 60px;
+  }
+
+  .grid { display: grid; gap: 18px; }
+
+  .card {
+    background: var(--surface-glass);
+    border-radius: var(--radius);
+    border: 1px solid var(--surface-border);
+    box-shadow: var(--shadow-strong);
+    padding: 22px;
+    backdrop-filter: blur(10px);
+    color: var(--text);
+    text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+  }
+
+  .lead { color: var(--muted); font-size: .95rem; line-height: 1.5; }
+  .list { padding-left: 1.2rem; margin: 0; }
+  .list li { margin-bottom: 4px; }
+
+  .bio-grid { display: grid; gap: 18px; }
+
+  @media(min-width:900px){
+    .bio-grid {
+      grid-template-columns: minmax(0,1fr) 360px;
+      align-items: start;
+    }
+  }
+
+  .bio-photo-frame {
+    background: var(--surface-glass);
+    border: 1px solid var(--surface-border);
+    border-radius: 0;
+    box-shadow: var(--shadow-strong);
+    padding: 12px;
+    backdrop-filter: blur(10px);
+  }
+
+  .bio-photo-inner {
+    width: 100%;
+    aspect-ratio: 3 / 3.48;
+    border-radius: 0;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .bio-photo-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .bio-highlights-card { grid-column: 1 / -1; }
+
+  .rep-block { margin-bottom: 32px; }
+
+  .rep-header-btn {
+    width: 100%;
+    background: var(--surface-glass);
+    border: 1px solid var(--surface-border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: var(--shadow-strong);
+  }
+
+  .rep-header-btn .caret {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #d8e2e6;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.8));
+  }
+
+  .rep-header-btn.open .caret { transform: rotate(180deg); }
+  .rep-content { display: none; margin-top: 16px; }
+  .rep-content.open { display: block; }
+  .rep-columns { display: grid; gap: 18px; }
+
+  @media(min-width:700px){
+    .rep-columns { grid-template-columns: repeat(2,1fr); }
+  }
+
+  .rep-col {
+    background: var(--surface-glass);
+    border-radius: var(--radius);
+    border: 1px solid var(--surface-border);
+    padding: 20px;
+    box-shadow: var(--shadow-strong);
+  }
+
+  .rep-col h3 {
+    margin-top: 0;
+    font-size: .9rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .rep-role-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+    font-size: .9rem;
+    line-height: 1.4;
+  }
+
+  .rep-role-list li {
+    background: rgba(0,0,0,0.3);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .carousel-block {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    position: relative;
+    padding: 18px 40px 26px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: radial-gradient(circle at 20% 0%, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.65) 55%, rgba(0,0,0,0.85) 100%);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.75);
+  }
+
+  .carousel-block::before,
+  .carousel-block::after {
+    content: "";
+    position: absolute;
+    top: 46px;
+    bottom: 26px;
+    width: 40px;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .carousel-block::before {
+    left: 40px;
+    background: linear-gradient(to right,
+      rgba(10, 20, 26, 0.95),
+      rgba(10, 20, 26, 0.0)
+    );
+  }
+
+  .carousel-block::after {
+    right: 40px;
+    background: linear-gradient(to left,
+      rgba(10, 20, 26, 0.95),
+      rgba(10, 20, 26, 0.0)
+    );
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text);
+    margin-bottom: 10px;
+    padding: 0 6px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .bar h3 {
+    margin: 0;
+    font-size: .8rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 10px 30px;
+    scrollbar-width: none;
+    position: relative;
+    z-index: 6;
+  }
+
+  .carousel-track::-webkit-scrollbar { display: none; }
+
+  .img-frame {
+    width: 320px;
+    height: 260px;
+    border-radius: 0;
+    overflow: hidden;
+    background: #000;
+    box-shadow: var(--shadow-strong);
+    cursor: pointer;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+
+  .img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: zoom-in;
+  }
+
+  .gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    z-index: 20;
+    opacity: 0.45;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+
+  .gallery-arrow-left::before,
+  .gallery-arrow-right::before {
+    content: "";
+    display: inline-block;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+  }
+
+  .gallery-arrow-left::before {
+    border-right: 18px solid rgba(255,255,255,0.9);
+  }
+
+  .gallery-arrow-right::before {
+    border-left: 18px solid rgba(255,255,255,0.9);
+  }
+
+  .gallery-arrow-left { left: -10px; }
+  .gallery-arrow-right { right: -10px; }
+
+  .gallery-arrow:hover::before {
+    filter: drop-shadow(0 0 4px rgba(255,255,255,0.8));
+  }
+
+  .gallery-arrow:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.06);
+  }
+
+  .recordings-grid {
+    display: grid;
+    gap: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .video-card {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    background: var(--surface-glass);
+    border-radius: var(--radius);
+    border: 1px solid var(--surface-border);
+    box-shadow: var(--shadow-strong);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: transform .2s ease, border-color .2s ease, background .2s ease;
+  }
+
+  .video-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.18);
+    background: rgba(20,30,36,0.72);
+  }
+
+  .video-thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+  }
+
+  .video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .video-thumb::after {
+    content: "▶";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 2.1rem;
+    color: #fff;
+    text-shadow: 0 4px 16px rgba(0,0,0,0.8);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(0,0,0,0.28));
+    pointer-events: none;
+  }
+
+  .video-card-body {
+    padding: 16px 18px 18px;
+  }
+
+  .video-card-title {
+    margin: 0 0 8px;
+    font-size: .95rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .video-card-text {
+    margin: 0;
+    color: var(--muted);
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+
+  .recordings-note {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: .9rem;
+    text-align: center;
+  }
+
+  .contact-grid { display: grid; gap: 18px; }
+
+  @media(min-width:800px){
+    .contact-grid { grid-template-columns: repeat(2,1fr); }
+  }
+
+  .contact-card {
+    background: var(--surface-glass);
+    border-radius: var(--radius);
+    border: 1px solid var(--surface-border);
+    box-shadow: var(--shadow-strong);
+    padding: 22px;
+    backdrop-filter: blur(10px);
+  }
+
+  .contact-card h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .lead-small {
+    color: var(--muted);
+    font-size: .9rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .chip-inline {
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 999px;
+    padding: 10px 14px;
+    text-decoration: none;
+    font-size: .82rem;
+    color: var(--text);
+    background: rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  }
+
+  .chip-inline:hover {
+    transform: translateY(-1px);
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.22);
+  }
+
+  .chip-inline svg {
+    width: 17px;
+    height: 17px;
+    fill: currentColor;
+    flex: 0 0 auto;
+  }
+
+  .contact-media-list {
+    margin-top: 20px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .contact-media-list h4 {
+    margin: 0 0 2px;
+    font-size: .85rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .mini-video-link {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text);
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    background: rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-soft);
+    transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  }
+
+  .mini-video-link:hover {
+    transform: translateY(-1px);
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.22);
+  }
+
+  .mini-video-thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000;
+    border-radius: 10px;
+  }
+
+  .mini-video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .mini-video-thumb::after {
+    content: "▶";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 1.4rem;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.18);
+    pointer-events: none;
+  }
+
+  .mini-video-title {
+    margin: 0 0 6px;
+    font-size: .82rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .mini-video-text {
+    margin: 0;
+    color: var(--muted);
+    font-size: .84rem;
+    line-height: 1.45;
+  }
+
+  label {
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 0 0 12px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text);
+    font-family: inherit;
+    font-size: .9rem;
+    box-shadow: var(--shadow-soft);
+  }
+
+  input:focus, textarea:focus { outline: 1px solid var(--muted); }
+
+  footer.site-footer {
+    padding: 36px 0 56px;
+    color: var(--muted);
+    text-align: center;
+    font-size: .8rem;
+  }
+
+  .lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 9999;
+  }
+
+  .lightbox-overlay.active { display: flex; }
+
+  .lightbox-inner {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 90vw;
+    height: 90vh;
+    border-radius: 0;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7);
+    border: 1px solid rgba(255,255,255,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: #000;
+  }
+
+  .lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.7);
+    background: rgba(0,0,0,0.5);
+    color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.8);
+  }
+
+  .lightbox-arrow:hover {
+    background: rgba(255,255,255,0.15);
+  }
+
+  .lightbox-prev { left: 24px; }
+  .lightbox-next { right: 24px; }
+
+  .to-top {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 150;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(10,26,34,0.82);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 12px 14px;
+    min-width: 54px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease, background .2s ease;
+  }
+
+  .to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .to-top:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  @media (max-width: 980px) {
+    .nav-right-row {
+      position: static;
+      width: 100%;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    .nav-inner {
+      padding-bottom: 12px;
+    }
+
+    nav.top-nav ul {
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      background-attachment: scroll;
+    }
+
+    .container {
+      padding: 0 16px;
+    }
+
+    .hero {
+      background-attachment: scroll;
+      min-height: 100svh;
+      padding-top: 40px;
+      padding-bottom: 72px;
+      align-items: center;
+    }
+
+    .hero::after {
+      height: 220px;
+    }
+
+    .hero-inner {
+      max-width: 100%;
+      margin-top: 24px;
+    }
+
+    .hero-name-main {
+      white-space: normal;
+      line-height: 1.15;
+      font-size: clamp(2rem, 9vw, 3rem);
+    }
+
+    .hero-name-role {
+      letter-spacing: .2em;
+    }
+
+    .hero-lines {
+      margin: 22px auto 26px;
+      font-size: .95rem;
+    }
+
+    .cta-row {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cta-row .btn {
+      width: 100%;
+      max-width: 280px;
+    }
+
+    #biography.std-section {
+      margin-top: -20px;
+      padding-top: 48px;
+    }
+
+    section.std-section {
+      padding: 64px 0 48px;
+    }
+
+    .bio-photo-col {
+      order: -1;
+    }
+
+    .bio-photo-frame {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .contact-card,
+    .card,
+    .rep-col {
+      padding: 18px;
+    }
+
+    .lightbox-inner {
+      width: 94vw;
+      height: 80vh;
+    }
+
+    .lightbox-prev { left: 12px; }
+    .lightbox-next { right: 12px; }
+
+    .to-top {
+      right: 14px;
+      bottom: 14px;
+      padding: 11px 13px;
+      min-width: 50px;
+      font-size: .72rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    nav.top-nav ul {
+      gap: 10px 14px;
+    }
+
+    nav.top-nav a {
+      font-size: .74rem;
+      letter-spacing: .06em;
+    }
+
+    .carousel-block {
+      padding: 16px 14px 20px;
+      border-radius: 18px;
+    }
+
+    .carousel-block::before,
+    .carousel-block::after,
+    .gallery-arrow {
+      display: none;
+    }
+
+    .carousel-track {
+      padding: 8px 4px 16px;
+      gap: 14px;
+    }
+
+    .img-frame {
+      width: 240px;
+      height: 190px;
+    }
+
+    .bar h3 {
+      font-size: .74rem;
+    }
+
+    .socials {
+      gap: 10px;
+    }
+
+    .chip-inline {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .mini-video-link {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hero-name-role {
+      font-size: .76rem;
+      letter-spacing: .16em;
+    }
+
+    .img-frame {
+      width: 210px;
+      height: 170px;
+    }
+
+    .rep-header-btn {
+      font-size: .92rem;
+      padding: 13px 12px;
+    }
+  }
+  </style>
+</head>
+
+<body>
+<header class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <nav aria-label="Primary" class="top-nav">
+        <ul>
+          <li><a href="#home" data-i18n="nav_about">About</a></li>
+          <li><a href="#biography" data-i18n="nav_biography">Biography</a></li>
+          <li><a href="#calendar" data-i18n="nav_calendar">Calendar</a></li>
+          <li><a href="#repertoire" data-i18n="nav_repertoire">Repertoire</a></li>
+          <li><a href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
+          <li><a href="#recordings" data-i18n="nav_recordings">Recordings</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right-row">
+        <div class="lang-switcher-top" role="group" aria-label="Language switcher">
+          <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>/<button type="button" data-lang="de" aria-pressed="false">DE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <div class="hero-name-block">
+      <span class="hero-name-main">
+        <span class="hero-initial">M</span><span class="rest-name">ELIS</span>
+        <span class="hero-initial">V</span><span class="rest-name">LAHOVIĆ</span>
+      </span>
+      <span class="hero-name-role">MEZZO-SOPRANO</span>
+    </div>
+
+    <div class="hero-lines">
+      <span data-i18n="hero_line_1">Opera · Concert</span>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn secondary" href="#calendar" data-i18n="hero_cta_calendar">See Calendar</a>
+      <a class="btn secondary" href="#recordings" data-i18n="hero_cta_watch">Watch / Listen</a>
+    </div>
+  </div>
+</section>
+
+<main id="top" class="container">
+
+  <section id="biography" class="std-section">
+    <h2 data-i18n="section_biography">Biography</h2>
+
+    <div class="bio-grid">
+      <div class="bio-text-col" data-lang-section="en">
+        <p class="lead">
+          Melis Vlahović, the Croatian mezzo-soprano based in Germany, made her debut at the Croatian National Theatre in Split as the Sorceress in Purcell’s <em>Dido and Aeneas</em>.
+        </p>
+        <p class="lead">
+          During her studies, she performed roles such as Dorabella
+          (<em>Così fan tutte</em>) and Idamante (<em>Idomeneo</em>). As a guest
+          at the Croatian National Theatre in Zagreb, she also appeared as
+          Marcellina (<em>Le nozze di Figaro</em>) and Suzy
+          (<em>La rondine</em>). Further engagements led her to the Staatsoper
+          Stuttgart (as one of the “Six Girls” in Weill’s
+          <em>Aufstieg und Fall der Stadt Mahagonny</em>), the Wilhelma Theater
+          Stuttgart (as Madame de Croissy in Poulenc’s
+          <em>Dialogues des Carmélites</em>), and the Kammeroper Weißenhorn,
+          where she also interpreted the soprano role of Euridice
+          (<em>Orfeo ed Euridice</em>).
+        </p>
+        <p class="lead">
+          She completed the postgraduate artistic programme of the Opera School
+          (Bühnenexamen) at the Stuttgart University of Music and Performing Arts
+          (HMDK) under the artistic guidance of Diana Haller. Upcoming engagements
+          include performances in Loriot’s <em>Wagner Ring 2.0</em> at the
+          Kammeroper Weißenhorn and in Wagner’s
+          <em>Die Meistersinger von Nürnberg</em> at Theater Ulm.
+        </p>
+      </div>
+
+      <div class="bio-text-col" data-lang-section="de" style="display:none;">
+        <p class="lead">
+          Melis Vlahović, die kroatische Mezzosopranistin mit Sitz in Deutschland, gab ihr Debüt am Kroatischen Nationaltheater in Split in der Rolle der Zauberin in Purcells <em>Dido and Aeneas</em>.
+        </p>
+        <p class="lead">
+          Während ihres Studiums sang sie unter anderem Dorabella
+          (<em>Così fan tutte</em>) und Idamante (<em>Idomeneo</em>). Als Gast
+          am Kroatischen Nationaltheater Zagreb übernahm sie zudem die Rollen der
+          Marcellina (<em>Le nozze di Figaro</em>) und der Suzy
+          (<em>La rondine</em>). Weitere Engagements führten sie an die
+          Staatsoper Stuttgart (als eines der „Sechs Mädchen“ in Weills
+          <em>Aufstieg und Fall der Stadt Mahagonny</em>), an das Wilhelma
+          Theater Stuttgart (als Madame de Croissy in Poulencs
+          <em>Dialogues des Carmélites</em>) sowie an die Kammeroper Weißenhorn,
+          wo sie als Euridice (<em>Orfeo ed Euridice</em>) auch die Sopranpartie
+          interpretierte.
+        </p>
+        <p class="lead">
+          Ihr Studium an der Hochschule für Musik und Darstellende Kunst
+          Stuttgart (HMDK) schloss sie unter der künstlerischen Betreuung von
+          Diana Haller mit dem Bühnenexamen (Opernschule) ab. Zukünftige
+          Engagements beinhalten eine Mitwirkung in Loriots
+          <em>Wagner Ring 2.0</em> an der Kammeroper Weißenhorn sowie in
+          Wagners <em>Die Meistersinger von Nürnberg</em> am Theater Ulm.
+        </p>
+      </div>
+
+      <div class="bio-photo-col">
+        <div class="bio-photo-frame">
+          <div class="bio-photo-inner">
+            <img src="images/bio.jpg?v=20251103" alt="Melis Vlahović portrait" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <div class="card bio-highlights-card">
+        <h3 style="margin-top:0; font-size:.9rem; letter-spacing:.18em; text-transform:uppercase;" data-i18n="highlights_title">Highlights</h3>
+        <ul class="list">
+          <li>Staatsoper Stuttgart — Weill: <em>Mahagonny</em></li>
+          <li>Wilhelma Theater Stuttgart — Poulenc: <em>Dialogues des Carmélites</em></li>
+          <li>Kammeroper Weißenhorn — Gluck: <em>Orfeo ed Euridice</em></li>
+          <li>Rector’s Award — Music Academy Zagreb (<em>Des Knaben Wunderhorn</em>)</li>
+          <li>Konzertexamen — HMDK Stuttgart (Class of Diana Haller)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="calendar" class="std-section">
+    <h2 data-i18n="section_calendar">Calendar</h2>
+    <div class="grid">
+      <article class="event card" itemscope itemtype="https://schema.org/Event">
+        <time itemprop="startDate" datetime="2026-06">June 2026</time>
+        <div>
+          <h3 itemprop="name"><em>Die Meistersinger von Nürnberg</em> — Lehrbuben</h3>
+          <p class="lead">
+            <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+              <span itemprop="name">Theater Ulm</span>
+            </span>
+          </p>
+        </div>
+      </article>
+
+      <article class="event card" itemscope itemtype="https://schema.org/Event">
+        <time itemprop="startDate" datetime="2026-10">October 2026</time>
+        <div>
+          <h3 itemprop="name">Wagner/Loriot: <em>Der Ring an 1 Abend</em> — Wellgunde / Zweite Norne</h3>
+          <p class="lead">
+            <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+              <span itemprop="name">Kammeroper Weißenhorn</span>
+            </span>
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="repertoire" class="std-section">
+    <h2 data-i18n="section_repertoire">Repertoire</h2>
+
+    <div class="rep-block">
+      <button class="rep-header-btn" data-collapse="opera"
+              aria-expanded="false" aria-controls="opera-content">
+        <span data-i18n="rep_opera">Opera</span><span class="caret" aria-hidden="true"></span>
+      </button>
+      <div class="rep-content" id="opera-content" hidden>
+        <div class="rep-columns">
+          <div class="rep-col" data-lang-section="en">
+            <h3>Opera (EN)</h3>
+            <ul class="rep-role-list">
+              <li>Berg: <em>Lulu</em> — Countess Geschwitz</li>
+              <li>Bizet: <em>Carmen</em> — Carmen</li>
+              <li>Donizetti: <em>Roberto Devereux</em> — Sara</li>
+              <li>Gounod: <em>Faust</em> — Siébel</li>
+              <li>Gluck: <em>Orfeo ed Euridice</em> — Euridice</li>
+              <li>Humperdinck: <em>Hänsel und Gretel</em> — Hänsel</li>
+              <li>Mascagni: <em>L’amico Fritz</em> — Beppe</li>
+              <li>Massenet: <em>Werther</em> — Charlotte</li>
+              <li>Massenet: <em>Cendrillon</em> — Dorothée</li>
+              <li>Mozart: <em>Così fan tutte</em> — Dorabella</li>
+              <li>Mozart: <em>Die Zauberflöte</em> — Second Lady</li>
+              <li>Mozart: <em>Idomeneo</em> — Idamante</li>
+              <li>Mozart: <em>Le nozze di Figaro</em> — Cherubino</li>
+              <li>Mozart: <em>Le nozze di Figaro</em> — Marcellina</li>
+              <li>Poulenc: <em>Dialogues des Carmélites</em> — Mme de Croissy</li>
+              <li>Purcell: <em>Dido and Aeneas</em> — Dido</li>
+              <li>Purcell: <em>Dido and Aeneas</em> — The Sorceress</li>
+              <li>Puccini: <em>La rondine</em> — Suzy / Lolette</li>
+              <li>Strauss, J.: <em>Die Fledermaus</em> — Prince Orlofsky</li>
+              <li>Tchaikovsky: <em>Pikovaya Dama (Queen of Spades)</em> — Polina</li>
+              <li>Weill: <em>Aufstieg und Fall der Stadt Mahagonny</em> — Fifth Girl</li>
+            </ul>
+          </div>
+          <div class="rep-col" data-lang-section="de" style="display:none;">
+            <h3>Oper (DE)</h3>
+            <ul class="rep-role-list">
+              <li>Berg: <em>Lulu</em> — Gräfin Geschwitz</li>
+              <li>Bizet: <em>Carmen</em> — Carmen</li>
+              <li>Donizetti: <em>Roberto Devereux</em> — Sara</li>
+              <li>Gounod: <em>Faust</em> — Siébel</li>
+              <li>Gluck: <em>Orfeo ed Euridice</em> — Euridice</li>
+              <li>Humperdinck: <em>Hänsel und Gretel</em> — Hänsel</li>
+              <li>Mascagni: <em>L’amico Fritz</em> — Beppe</li>
+              <li>Massenet: <em>Werther</em> — Charlotte</li>
+              <li>Massenet: <em>Cendrillon</em> — Dorothée</li>
+              <li>Mozart: <em>Così fan tutte</em> — Dorabella</li>
+              <li>Mozart: <em>Die Zauberflöte</em> — Zweite Dame</li>
+              <li>Mozart: <em>Idomeneo</em> — Idamante</li>
+              <li>Mozart: <em>Le nozze di Figaro</em> — Cherubino</li>
+              <li>Mozart: <em>Le nozze di Figaro</em> — Marcellina</li>
+              <li>Poulenc: <em>Dialogues des Carmélites</em> — Mme de Croissy</li>
+              <li>Purcell: <em>Dido and Aeneas</em> — Dido</li>
+              <li>Purcell: <em>Dido and Aeneas</em> — Die Zauberin</li>
+              <li>Puccini: <em>La Rondine</em> — Suzy / Lolette</li>
+              <li>Strauss, J.: <em>Die Fledermaus</em> — Prinz Orlofsky</li>
+              <li>Tschaikowsky: <em>Pique Dame</em> — Polina</li>
+              <li>Weill: <em>Aufstieg und Fall der Stadt Mahagonny</em> — Fünftes Mädchen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rep-block">
+      <button class="rep-header-btn" data-collapse="concert"
+              aria-expanded="false" aria-controls="concert-content">
+        <span data-i18n="rep_concert">Concert</span><span class="caret" aria-hidden="true"></span>
+      </button>
+      <div class="rep-content" id="concert-content" hidden>
+        <div class="rep-columns">
+          <div class="rep-col" data-lang-section="en">
+            <h3>Concert / Oratorio (EN)</h3>
+            <ul class="rep-role-list">
+              <li>Handel: <em>Messiah</em> — Alto Solo</li>
+              <li>Recital programs available on request</li>
+            </ul>
+          </div>
+          <div class="rep-col" data-lang-section="de" style="display:none;">
+            <h3>Konzert / Oratorium (DE)</h3>
+            <ul class="rep-role-list">
+              <li>Händel: <em>Messiah</em> — Alt-Solo</li>
+              <li>Lieder- / Recital-Programme auf Anfrage erhältlich</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="std-section">
+    <h2 data-i18n="section_gallery">Gallery</h2>
+
+    <div class="carousel-block">
+      <div class="bar">
+        <h3 data-i18n="gallery_stage">Gallery — On Stage</h3>
+      </div>
+
+      <button class="gallery-arrow gallery-arrow-left" data-target="#onstage-track" data-dir="left" aria-label="Previous"></button>
+      <button class="gallery-arrow gallery-arrow-right" data-target="#onstage-track" data-dir="right" aria-label="Next"></button>
+
+      <div class="carousel-track" id="onstage-track">
+        <div class="img-frame"><img src="images/melis_onstage1.jpg?v=20251103" alt="On stage 1" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage2.jpg?v=20251103" alt="On stage 2" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage3.jpg?v=20251103" alt="On stage 3" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage4.jpg?v=20251103" alt="On stage 4" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage5.jpg?v=20251103" alt="On stage 5" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage6.jpg?v=20251103" alt="On stage 6" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage7.jpg?v=20251103" alt="On stage 7" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage8.jpg?v=20251103" alt="On stage 8" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage9.jpg?v=20251103" alt="On stage 9" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage10.jpg?v=20251103" alt="On stage 10" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage11.jpg?v=20251103" alt="On stage 11" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage12.jpg?v=20251103" alt="On stage 12" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage13.jpg?v=20251103" alt="On stage 13" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage14.jpg?v=20251103" alt="On stage 14" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage15.jpg?v=20251103" alt="On stage 15" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage16.jpg?v=20251103" alt="On stage 16" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage17.jpg?v=20251103" alt="On stage 17" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_onstage18.jpg?v=20251103" alt="On stage 18" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="carousel-block">
+      <div class="bar">
+        <h3 data-i18n="gallery_private">Gallery — Private</h3>
+      </div>
+
+      <button class="gallery-arrow gallery-arrow-left" data-target="#private-track" data-dir="left" aria-label="Previous"></button>
+      <button class="gallery-arrow gallery-arrow-right" data-target="#private-track" data-dir="right" aria-label="Next"></button>
+
+      <div class="carousel-track" id="private-track">
+        <div class="img-frame"><img src="images/melis_private1.jpg?v=20251103" alt="Private 1" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_private2.jpg?v=20251103" alt="Private 2" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_private3.jpg?v=20251103" alt="Private 3" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_private4.jpg?v=20251103" alt="Private 4" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_private5.jpg?v=20251103" alt="Private 5" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_private6.jpg?v=20251103" alt="Private 6" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_private7.jpg?v=20251103" alt="Private 7" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="recordings" class="std-section">
+    <h2 data-i18n="section_recordings">Recordings</h2>
+
+    <div class="recordings-grid">
+      <a class="video-card" href="https://www.youtube.com/playlist?list=PLsfj3DKT0-bZKl4kpj47O-Vz7iisqOKpC" target="_blank" rel="noopener noreferrer">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/VIDEOSERIES/hqdefault.jpg" alt="YouTube playlist preview" loading="lazy">
+        </div>
+        <div class="video-card-body">
+          <h3 class="video-card-title" data-i18n="recordings_card_1_title">Full Playlist — Watch & Listen</h3>
+          <p class="video-card-text" data-i18n="recordings_card_1_text">Open the complete YouTube playlist with performances, rehearsals and recordings.</p>
+        </div>
+      </a>
+    </div>
+
+    <p class="recordings-note" data-i18n="recordings_note">
+      Click the preview card to open the YouTube playlist in a new tab.
+    </p>
+  </section>
+
+  <section id="contact" class="std-section">
+    <h2 data-i18n="section_contact">Contact</h2>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3 data-i18n="contact_bookings">Bookings & Press</h3>
+        <p class="lead-small" data-i18n="contact_intro">For engagements, interviews, and media requests:</p>
+
+        <p>
+          <a href="mailto:melis.vlahovic@gmail.com" style="color:var(--text); text-decoration:none;">
+            melis.vlahovic@gmail.com
+          </a>
+        </p>
+
+        <div class="socials" aria-label="Social links" style="margin-top:12px;">
+          <a class="chip-inline" href="https://www.instagram.com/melisvlahovic/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.55a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+
+          <a class="chip-inline" href="https://youtube.com/playlist?list=PLsfj3DKT0-bZKl4kpj47O-Vz7iisqOKpC" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M23.5 7.2a3 3 0 0 0-2.12-2.12C19.5 4.5 12 4.5 12 4.5s-7.5 0-9.38.58A3 3 0 0 0 .5 7.2 31.8 31.8 0 0 0 0 12a31.8 31.8 0 0 0 .5 4.8 3 3 0 0 0 2.12 2.12c1.88.58 9.38.58 9.38.58s7.5 0 9.38-.58a3 3 0 0 0 2.12-2.12A31.8 31.8 0 0 0 24 12a31.8 31.8 0 0 0-.5-4.8ZM9.6 15.6V8.4L16 12l-6.4 3.6Z"/>
+            </svg>
+            <span>YouTube</span>
+          </a>
+        </div>
+
+        <div class="contact-media-list">
+          <h4 data-i18n="contact_video_selection">Playlist Preview</h4>
+
+          <a class="mini-video-link" href="https://www.youtube.com/playlist?list=PLsfj3DKT0-bZKl4kpj47O-Vz7iisqOKpC" target="_blank" rel="noopener noreferrer">
+            <div class="mini-video-thumb">
+              <img src="https://img.youtube.com/vi/VIDEOSERIES/hqdefault.jpg" alt="Playlist preview thumbnail" loading="lazy">
+            </div>
+            <div>
+              <h5 class="mini-video-title" data-i18n="mini_video_title_1">Open YouTube playlist</h5>
+              <p class="mini-video-text" data-i18n="mini_video_text_1">Performances, rehearsals and recordings in one playlist.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h3 data-i18n="quick_message_title">Quick Message</h3>
+        <form action="https://formspree.io/f/xzdjqveo" method="POST">
+          <label for="name" data-i18n="form_name">Name</label>
+          <input id="name" name="name" required />
+
+          <label for="email" data-i18n="form_email">Email</label>
+          <input id="email" name="email" type="email" required />
+
+          <label for="msg" data-i18n="form_message">Message</label>
+          <textarea id="msg" name="message" rows="5" required></textarea>
+
+          <input type="hidden" name="_subject" value="New message from Melis website" />
+
+          <button class="btn secondary" type="submit" style="margin-top:8px;" data-i18n="form_send">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Melis Vlahović · <a href="#contact" style="color:var(--muted); text-decoration:none;" data-i18n="footer_contact">Contact</a></p>
+  </footer>
+
+</main>
+
+<button class="to-top" id="toTopBtn" type="button" aria-label="Return to top">
+  ↑ Top
+</button>
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous image">‹</button>
+  <div class="lightbox-inner">
+    <img id="lightbox-img" src="" alt="Enlarged image">
+  </div>
+  <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">›</button>
+</div>
+
+<script>
+document.documentElement.classList.remove('preload');
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const translations = {
+  en: {
+    nav_about: "About",
+    nav_biography: "Biography",
+    nav_calendar: "Calendar",
+    nav_repertoire: "Repertoire",
+    nav_gallery: "Gallery",
+    nav_recordings: "Recordings",
+    nav_contact: "Contact",
+    hero_line_1: "Opera · Concert",
+    hero_cta_calendar: "See Calendar",
+    hero_cta_watch: "Watch / Listen",
+    section_biography: "Biography",
+    section_calendar: "Calendar",
+    section_repertoire: "Repertoire",
+    rep_opera: "Opera",
+    rep_concert: "Concert",
+    section_gallery: "Gallery",
+    gallery_stage: "Gallery — On Stage",
+    gallery_private: "Gallery — Private",
+    section_recordings: "Recordings",
+    recordings_card_1_title: "Full Playlist — Watch & Listen",
+    recordings_card_1_text: "Open the complete YouTube playlist with performances, rehearsals and recordings.",
+    recordings_note: "Click the preview card to open the YouTube playlist in a new tab.",
+    section_contact: "Contact",
+    contact_bookings: "Bookings & Press",
+    contact_intro: "For engagements, interviews, and media requests:",
+    contact_video_selection: "Playlist Preview",
+    mini_video_title_1: "Open YouTube playlist",
+    mini_video_text_1: "Performances, rehearsals and recordings in one playlist.",
+    quick_message_title: "Quick Message",
+    form_name: "Name",
+    form_email: "Email",
+    form_message: "Message",
+    form_send: "Send",
+    footer_contact: "Contact",
+    highlights_title: "Highlights"
+  },
+  de: {
+    nav_about: "Über mich",
+    nav_biography: "Biografie",
+    nav_calendar: "Kalender",
+    nav_repertoire: "Repertoire",
+    nav_gallery: "Galerie",
+    nav_recordings: "Aufnahmen",
+    nav_contact: "Kontakt",
+    hero_line_1: "Oper · Konzert",
+    hero_cta_calendar: "Kalender ansehen",
+    hero_cta_watch: "Ansehen / Anhören",
+    section_biography: "Biografie",
+    section_calendar: "Kalender",
+    section_repertoire: "Repertoire",
+    rep_opera: "Oper",
+    rep_concert: "Konzert",
+    section_gallery: "Galerie",
+    gallery_stage: "Galerie — Bühne",
+    gallery_private: "Galerie — Privat",
+    section_recordings: "Aufnahmen",
+    recordings_card_1_title: "Gesamte Playlist — Ansehen & Anhören",
+    recordings_card_1_text: "Die vollständige YouTube-Playlist mit Aufführungen, Proben und Aufnahmen öffnen.",
+    recordings_note: "Klicken Sie auf die Vorschaukarte, um die YouTube-Playlist in einem neuen Tab zu öffnen.",
+    section_contact: "Kontakt",
+    contact_bookings: "Engagements & Presse",
+    contact_intro: "Für Engagements, Interviews und Medienanfragen:",
+    contact_video_selection: "Videoauswahl",
+    mini_video_title_1: "YouTube-Playlist öffnen",
+    mini_video_text_1: "Aufführungen, Proben und Aufnahmen in einer Playlist.",
+    quick_message_title: "Nachricht senden",
+    form_name: "Name",
+    form_email: "E-Mail",
+    form_message: "Nachricht",
+    form_send: "Senden",
+    footer_contact: "Kontakt",
+    highlights_title: "Highlights"
+  }
+};
+
+const langButtons = document.querySelectorAll('.lang-switcher-top button');
+
+function applyTranslations(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+}
+
+function setLang(lang) {
+  langButtons.forEach(b => {
+    const isActive = b.getAttribute('data-lang') === lang;
+    b.classList.toggle('active', isActive);
+    b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+
+  document.querySelectorAll('[data-lang-section]').forEach(el => {
+    el.style.display = (el.getAttribute('data-lang-section') === lang) ? '' : 'none';
+  });
+
+  applyTranslations(lang);
+
+  try { localStorage.setItem('site-lang', lang); } catch (e) {}
+}
+
+langButtons.forEach(btn =>
+  btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')))
+);
+
+(function initLang() {
+  let initial = 'en';
+  try {
+    const saved = localStorage.getItem('site-lang');
+    if (saved === 'en' || saved === 'de') initial = saved;
+  } catch (e) {}
+  setLang(initial);
+})();
+
+function setupRepToggle(btnSel, contentId){
+  const btn = document.querySelector(btnSel);
+  const content = document.getElementById(contentId);
+  if (!btn || !content) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = btn.classList.toggle('open');
+    content.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    content.hidden = !isOpen;
+  });
+}
+setupRepToggle('[data-collapse="opera"]','opera-content');
+setupRepToggle('[data-collapse="concert"]','concert-content');
+
+const lightboxEl = document.getElementById('lightbox');
+const lightboxImgEl = document.getElementById('lightbox-img');
+const prevBtn = document.querySelector('.lightbox-prev');
+const nextBtn = document.querySelector('.lightbox-next');
+
+const galleryImages = Array.from(document.querySelectorAll('.img-frame img'));
+let currentImgIndex = -1;
+
+function openLightbox(index) {
+  currentImgIndex = index;
+  lightboxImgEl.src = galleryImages[index].src;
+  lightboxEl.classList.add('active');
+}
+
+function closeLightbox() {
+  lightboxEl.classList.remove('active');
+  lightboxImgEl.src = "";
+  currentImgIndex = -1;
+}
+
+function showRelative(delta) {
+  if (currentImgIndex < 0) return;
+  const total = galleryImages.length;
+  currentImgIndex = (currentImgIndex + delta + total) % total;
+  lightboxImgEl.src = galleryImages[currentImgIndex].src;
+}
+
+galleryImages.forEach((img, index) => {
+  img.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openLightbox(index);
+  });
+});
+
+lightboxEl.addEventListener('click', () => {
+  closeLightbox();
+});
+
+document.querySelector('.lightbox-inner').addEventListener('click', (e) => {
+  e.stopPropagation();
+});
+
+prevBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  showRelative(-1);
+});
+
+nextBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  showRelative(1);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (!lightboxEl.classList.contains('active')) return;
+  if (e.key === 'Escape') {
+    closeLightbox();
+  } else if (e.key === 'ArrowRight') {
+    showRelative(1);
+  } else if (e.key === 'ArrowLeft') {
+    showRelative(-1);
+  }
+});
+
+document.querySelectorAll('.gallery-arrow').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.getAttribute('data-target');
+    const dir = btn.getAttribute('data-dir');
+    const track = document.querySelector(target);
+    if (!track) return;
+    const card = track.querySelector('.img-frame');
+    const step = card ? (card.clientWidth + 20) : 340;
+    track.scrollBy({ left: dir === 'left' ? -step : step, behavior: 'smooth' });
+  });
+});
+
+const toTopBtn = document.getElementById('toTopBtn');
+
+function toggleToTopButton() {
+  if (window.scrollY > 500) {
+    toTopBtn.classList.add('show');
+  } else {
+    toTopBtn.classList.remove('show');
+  }
+}
+
+window.addEventListener('scroll', toggleToTopButton, { passive: true });
+
+toTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+toggleToTopButton();
+</script>
+
+</body>
+</html>
