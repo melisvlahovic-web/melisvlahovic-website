@@ -95,7 +95,7 @@
 
       function allowNormalContextMenu(target) {
         return !!target.closest(
-          '.bio-text-col, .bio-highlights-card, .bio-photo-inner, .img-frame, .video-thumb, .mini-video-thumb, input, textarea'
+          '.bio-text-col, .bio-highlights-card, .bio-photo-inner, .video-thumb, .mini-video-thumb, input, textarea, [data-private-download="true"]'
         );
       }
 
@@ -1579,13 +1579,13 @@
       <button class="gallery-arrow gallery-arrow-right" data-target="#private-track" data-dir="right" aria-label="Next"></button>
 
       <div class="carousel-track" id="private-track">
-        <div class="img-frame"><img src="images/melis_private1.jpg?v=20251103" alt="Private 1" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_private2.jpg?v=20251103" alt="Private 2" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_private3.jpg?v=20251103" alt="Private 3" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_private4.jpg?v=20251103" alt="Private 4" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_private5.jpg?v=20251103" alt="Private 5" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_private6.jpg?v=20251103" alt="Private 6" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_private7.jpg?v=20251103" alt="Private 7" loading="lazy"></div>
+        <div class="img-frame"><img src="images/melis_private1.jpg?v=20251103" alt="Private 1" loading="lazy" data-private-download="true"></div>
+        <div class="img-frame"><img src="images/melis_private2.jpg?v=20251103" alt="Private 2" loading="lazy" data-private-download="true"></div>
+        <div class="img-frame"><img src="images/melis_private3.jpg?v=20251103" alt="Private 3" loading="lazy" data-private-download="true"></div>
+        <div class="img-frame"><img src="images/melis_private4.jpg?v=20251103" alt="Private 4" loading="lazy" data-private-download="true"></div>
+        <div class="img-frame"><img src="images/melis_private5.jpg?v=20251103" alt="Private 5" loading="lazy" data-private-download="true"></div>
+        <div class="img-frame"><img src="images/melis_private6.jpg?v=20251103" alt="Private 6" loading="lazy" data-private-download="true"></div>
+        <div class="img-frame"><img src="images/melis_private7.jpg?v=20251103" alt="Private 7" loading="lazy" data-private-download="true"></div>
       </div>
     </div>
   </section>
