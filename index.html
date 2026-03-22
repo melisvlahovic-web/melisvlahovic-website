@@ -321,6 +321,11 @@
     box-shadow: none;
   }
 
+  .btn.secondary:disabled {
+    opacity: 0.7;
+    cursor: wait;
+  }
+
   section.std-section { padding: 80px 0 60px; }
 
   section.std-section h2 {
@@ -839,6 +844,32 @@
   }
 
   input:focus, textarea:focus { outline: 1px solid var(--muted); }
+
+  .form-status {
+    display: none;
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: .88rem;
+    line-height: 1.45;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .form-status.show {
+    display: block;
+  }
+
+  .form-status.success {
+    background: rgba(58, 110, 88, 0.28);
+    border: 1px solid rgba(124, 201, 164, 0.28);
+    color: #e7fff3;
+  }
+
+  .form-status.error {
+    background: rgba(120, 44, 44, 0.28);
+    border: 1px solid rgba(255, 148, 148, 0.24);
+    color: #ffe9e9;
+  }
 
   footer.site-footer {
     padding: 36px 0 56px;
@@ -1511,7 +1542,7 @@
 
       <div class="contact-card">
         <h3 data-i18n="quick_message_title">Quick Message</h3>
-        <form action="https://formspree.io/f/xzdjqveo" method="POST">
+        <form id="quickMessageForm" action="https://formspree.io/f/xzdjqveo" method="POST">
           <label for="name" data-i18n="form_name">Name</label>
           <input id="name" name="name" required />
 
@@ -1523,7 +1554,9 @@
 
           <input type="hidden" name="_subject" value="New message from Melis website" />
 
-          <button class="btn secondary" type="submit" style="margin-top:8px;" data-i18n="form_send">Send</button>
+          <button class="btn secondary" id="formSubmitBtn" type="submit" style="margin-top:8px;" data-i18n="form_send">Send</button>
+
+          <div id="formStatus" class="form-status" aria-live="polite"></div>
         </form>
       </div>
     </div>
@@ -1586,6 +1619,9 @@ const translations = {
     form_email: "Email",
     form_message: "Message",
     form_send: "Send",
+    form_sending: "Sending...",
+    form_success: "Thank you. Your message has been sent.",
+    form_error: "Sorry, something went wrong. Please try again.",
     footer_contact: "Contact",
     highlights_title: "Highlights"
   },
@@ -1623,12 +1659,16 @@ const translations = {
     form_email: "E-Mail",
     form_message: "Nachricht",
     form_send: "Senden",
+    form_sending: "Wird gesendet...",
+    form_success: "Vielen Dank. Ihre Nachricht wurde gesendet.",
+    form_error: "Leider ist etwas schiefgelaufen. Bitte versuchen Sie es erneut.",
     footer_contact: "Kontakt",
     highlights_title: "Highlights"
   }
 };
 
 const langButtons = document.querySelectorAll('.lang-switcher-top button');
+let currentLang = 'en';
 
 function applyTranslations(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -1640,6 +1680,8 @@ function applyTranslations(lang) {
 }
 
 function setLang(lang) {
+  currentLang = lang;
+
   langButtons.forEach(b => {
     const isActive = b.getAttribute('data-lang') === lang;
     b.classList.toggle('active', isActive);
@@ -1775,6 +1817,50 @@ toTopBtn.addEventListener('click', () => {
 });
 
 toggleToTopButton();
+
+const quickMessageForm = document.getElementById('quickMessageForm');
+const formSubmitBtn = document.getElementById('formSubmitBtn');
+const formStatus = document.getElementById('formStatus');
+
+function showFormStatus(type, message) {
+  formStatus.className = 'form-status show ' + type;
+  formStatus.textContent = message;
+}
+
+quickMessageForm.addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  formStatus.className = 'form-status';
+  formStatus.textContent = '';
+
+  const sendingText = translations[currentLang].form_sending;
+  const sendText = translations[currentLang].form_send;
+
+  formSubmitBtn.disabled = true;
+  formSubmitBtn.textContent = sendingText;
+
+  try {
+    const response = await fetch(quickMessageForm.action, {
+      method: 'POST',
+      body: new FormData(quickMessageForm),
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      quickMessageForm.reset();
+      showFormStatus('success', translations[currentLang].form_success);
+    } else {
+      showFormStatus('error', translations[currentLang].form_error);
+    }
+  } catch (error) {
+    showFormStatus('error', translations[currentLang].form_error);
+  }
+
+  formSubmitBtn.disabled = false;
+  formSubmitBtn.textContent = sendText;
+});
 </script>
 
 </body>
