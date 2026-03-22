@@ -93,29 +93,18 @@
         }, 1800);
       }
 
+      function allowNormalContextMenu(target) {
+        return !!target.closest(
+          '.bio-text-col, .bio-highlights-card, .bio-photo-inner, .img-frame, .photo-credits-card, input, textarea'
+        );
+      }
+
       document.addEventListener('contextmenu', function (e) {
+        if (allowNormalContextMenu(e.target)) return true;
         e.preventDefault();
         e.stopPropagation();
         showBlockedMessage();
         return false;
-      }, true);
-
-      document.addEventListener('dragstart', function (e) {
-        if (e.target && e.target.tagName === 'IMG') {
-          e.preventDefault();
-          e.stopPropagation();
-          showBlockedMessage();
-          return false;
-        }
-      }, true);
-
-      document.addEventListener('selectstart', function (e) {
-        const tag = e.target && e.target.tagName ? e.target.tagName : '';
-        if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
-          e.preventDefault();
-          e.stopPropagation();
-          return false;
-        }
       }, true);
 
       document.addEventListener('keydown', function (e) {
@@ -125,8 +114,7 @@
           ((e.ctrlKey || e.metaKey) && key === 'u') ||
           ((e.ctrlKey || e.metaKey) && key === 's') ||
           ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'i') ||
-          ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'j') ||
-          ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'c');
+          ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'j');
 
         if (blocked) {
           e.preventDefault();
@@ -201,9 +189,6 @@
     background-color: #0a1a22;
     -webkit-font-smoothing: antialiased;
     transition: opacity .28s ease;
-    -webkit-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
   }
 
   a { color: inherit; text-decoration-thickness: .08em; text-underline-offset: .18em; }
@@ -216,15 +201,17 @@
     outline-offset: 3px;
   }
 
-  input, textarea {
+  input, textarea,
+  .bio-text-col, .bio-text-col *,
+  .bio-highlights-card, .bio-highlights-card *,
+  .photo-credits-card, .photo-credits-card * {
     -webkit-user-select: text;
     user-select: text;
   }
 
   img {
-    -webkit-user-drag: none;
-    user-select: none;
-    pointer-events: auto;
+    -webkit-user-drag: auto;
+    user-select: auto;
   }
 
   .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
@@ -1000,12 +987,6 @@
     font-size: .8rem;
   }
 
-  .copyright-line {
-    margin-top: 10px;
-    font-size: .78rem;
-    letter-spacing: .05em;
-  }
-
   .lightbox-overlay {
     position: fixed;
     inset: 0;
@@ -1332,7 +1313,7 @@
   </style>
 </head>
 
-<body oncontextmenu="return false;">
+<body>
 <header class="nav">
   <div class="container">
     <div class="nav-inner">
@@ -1733,7 +1714,6 @@
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Melis Vlahović · <a href="#contact" style="color:var(--muted); text-decoration:none;" data-i18n="footer_contact">Contact</a></p>
-    <p class="copyright-line">All rights reserved. Images, text, and media may not be copied or reproduced without permission.</p>
   </footer>
 
 </main>
