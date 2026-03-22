@@ -79,53 +79,6 @@
 
   <script>
     (function () {
-      const blockedMessageText = 'Content is protected.';
-      let blockedMessageTimer;
-
-      function showBlockedMessage() {
-        const existing = document.getElementById('protectionMessage');
-        if (!existing) return;
-        existing.textContent = blockedMessageText;
-        existing.classList.add('show');
-        clearTimeout(blockedMessageTimer);
-        blockedMessageTimer = setTimeout(() => {
-          existing.classList.remove('show');
-        }, 1800);
-      }
-
-      function allowNormalContextMenu(target) {
-        return !!target.closest(
-          '.bio-text-col, .bio-highlights-card, .bio-photo-inner, .video-thumb, .mini-video-thumb, #private-track, [data-private-download="true"], input, textarea'
-        );
-      }
-
-      document.addEventListener('contextmenu', function (e) {
-        if (allowNormalContextMenu(e.target)) return true;
-        e.preventDefault();
-        e.stopPropagation();
-        showBlockedMessage();
-        return false;
-      }, true);
-
-      document.addEventListener('keydown', function (e) {
-        const tag = e.target && e.target.tagName ? e.target.tagName : '';
-        if (tag === 'INPUT' || tag === 'TEXTAREA') return true;
-
-        const key = (e.key || '').toLowerCase();
-        const blocked =
-          key === 'f12' ||
-          ((e.ctrlKey || e.metaKey) && key === 'u') ||
-          ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'i') ||
-          ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'j');
-
-        if (blocked) {
-          e.preventDefault();
-          e.stopPropagation();
-          showBlockedMessage();
-          return false;
-        }
-      }, true);
-
       const root = document.documentElement;
       const showPage = () => root.classList.remove('preload');
 
@@ -493,12 +446,20 @@
     border-radius: 0;
     overflow: hidden;
     background: #000;
+    position: relative;
   }
 
   .bio-photo-inner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+  }
+
+  .bio-photo-link {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .bio-highlights-card { grid-column: 1 / -1; }
@@ -659,6 +620,7 @@
     cursor: pointer;
     flex: 0 0 auto;
     scroll-snap-align: center;
+    position: relative;
   }
 
   .img-frame img {
@@ -666,6 +628,43 @@
     height: 100%;
     object-fit: cover;
     cursor: zoom-in;
+    display: block;
+  }
+
+  .gallery-open-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .download-badge {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 8;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 42px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.28);
+    background: rgba(10,26,34,0.78);
+    color: #fff;
+    text-decoration: none;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+    transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  }
+
+  .download-badge:hover {
+    transform: translateY(-1px);
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.45);
   }
 
   .gallery-arrow {
@@ -987,6 +986,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
 
   .lightbox-inner img {
@@ -995,6 +995,32 @@
     object-fit: contain;
     display: block;
     background: #000;
+  }
+
+  .lightbox-download {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.75);
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    text-decoration: none;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+  }
+
+  .lightbox-download:hover {
+    background: rgba(255,255,255,0.12);
   }
 
   .lightbox-arrow {
@@ -1055,31 +1081,6 @@
 
   .to-top:hover {
     background: rgba(255,255,255,0.1);
-  }
-
-  .site-protection-message {
-    position: fixed;
-    left: 50%;
-    bottom: 22px;
-    transform: translateX(-50%) translateY(20px);
-    background: rgba(10,26,34,0.94);
-    color: var(--text);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 999px;
-    padding: 10px 16px;
-    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
-    backdrop-filter: blur(10px);
-    font-size: .82rem;
-    z-index: 10001;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .2s ease, transform .2s ease;
-    white-space: nowrap;
-  }
-
-  .site-protection-message.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
   }
 
   @media (max-width: 980px) {
@@ -1191,20 +1192,20 @@
     .lightbox-prev { left: 12px; }
     .lightbox-next { right: 12px; }
 
+    .lightbox-download {
+      top: 12px;
+      right: 12px;
+      min-height: 38px;
+      padding: 0 12px;
+      font-size: .75rem;
+    }
+
     .to-top {
       right: 14px;
       bottom: 14px;
       padding: 11px 13px;
       min-width: 50px;
       font-size: .72rem;
-    }
-
-    .site-protection-message {
-      width: calc(100% - 32px);
-      max-width: 420px;
-      white-space: normal;
-      text-align: center;
-      border-radius: 16px;
     }
   }
 
@@ -1254,6 +1255,15 @@
 
     .mini-video-link {
       grid-template-columns: 1fr;
+    }
+
+    .download-badge {
+      right: 8px;
+      bottom: 8px;
+      min-width: 38px;
+      height: 38px;
+      padding: 0 10px;
+      font-size: .72rem;
     }
   }
 
@@ -1398,7 +1408,10 @@
       <div class="bio-photo-col">
         <div class="bio-photo-frame">
           <div class="bio-photo-inner">
-            <img src="images/bio.jpg?v=20251103" alt="Melis Vlahović portrait" loading="lazy" />
+            <a class="bio-photo-link" href="images/bio.jpg?v=20251103" download="melis-vlahovic-bio.jpg">
+              <img src="images/bio.jpg?v=20251103" alt="Melis Vlahović portrait" loading="lazy" />
+            </a>
+            <a class="download-badge" href="images/bio.jpg?v=20251103" download="melis-vlahovic-bio.jpg" aria-label="Download photo">↓</a>
           </div>
         </div>
       </div>
@@ -1549,24 +1562,78 @@
       <button class="gallery-arrow gallery-arrow-right" data-target="#onstage-track" data-dir="right" aria-label="Next"></button>
 
       <div class="carousel-track" id="onstage-track">
-        <div class="img-frame"><img src="images/melis_onstage1.jpg?v=20251103" alt="On stage 1" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage2.jpg?v=20251103" alt="On stage 2" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage3.jpg?v=20251103" alt="On stage 3" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage4.jpg?v=20251103" alt="On stage 4" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage5.jpg?v=20251103" alt="On stage 5" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage6.jpg?v=20251103" alt="On stage 6" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage7.jpg?v=20251103" alt="On stage 7" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage8.jpg?v=20251103" alt="On stage 8" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage9.jpg?v=20251103" alt="On stage 9" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage10.jpg?v=20251103" alt="On stage 10" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage11.jpg?v=20251103" alt="On stage 11" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage12.jpg?v=20251103" alt="On stage 12" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage13.jpg?v=20251103" alt="On stage 13" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage14.jpg?v=20251103" alt="On stage 14" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage15.jpg?v=20251103" alt="On stage 15" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage16.jpg?v=20251103" alt="On stage 16" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage17.jpg?v=20251103" alt="On stage 17" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_onstage18.jpg?v=20251103" alt="On stage 18" loading="lazy"></div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage1.jpg?v=20251103"><img src="images/melis_onstage1.jpg?v=20251103" alt="On stage 1" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage1.jpg?v=20251103" download="melis-onstage-1.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage2.jpg?v=20251103"><img src="images/melis_onstage2.jpg?v=20251103" alt="On stage 2" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage2.jpg?v=20251103" download="melis-onstage-2.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage3.jpg?v=20251103"><img src="images/melis_onstage3.jpg?v=20251103" alt="On stage 3" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage3.jpg?v=20251103" download="melis-onstage-3.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage4.jpg?v=20251103"><img src="images/melis_onstage4.jpg?v=20251103" alt="On stage 4" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage4.jpg?v=20251103" download="melis-onstage-4.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage5.jpg?v=20251103"><img src="images/melis_onstage5.jpg?v=20251103" alt="On stage 5" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage5.jpg?v=20251103" download="melis-onstage-5.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage6.jpg?v=20251103"><img src="images/melis_onstage6.jpg?v=20251103" alt="On stage 6" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage6.jpg?v=20251103" download="melis-onstage-6.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage7.jpg?v=20251103"><img src="images/melis_onstage7.jpg?v=20251103" alt="On stage 7" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage7.jpg?v=20251103" download="melis-onstage-7.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage8.jpg?v=20251103"><img src="images/melis_onstage8.jpg?v=20251103" alt="On stage 8" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage8.jpg?v=20251103" download="melis-onstage-8.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage9.jpg?v=20251103"><img src="images/melis_onstage9.jpg?v=20251103" alt="On stage 9" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage9.jpg?v=20251103" download="melis-onstage-9.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage10.jpg?v=20251103"><img src="images/melis_onstage10.jpg?v=20251103" alt="On stage 10" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage10.jpg?v=20251103" download="melis-onstage-10.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage11.jpg?v=20251103"><img src="images/melis_onstage11.jpg?v=20251103" alt="On stage 11" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage11.jpg?v=20251103" download="melis-onstage-11.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage12.jpg?v=20251103"><img src="images/melis_onstage12.jpg?v=20251103" alt="On stage 12" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage12.jpg?v=20251103" download="melis-onstage-12.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage13.jpg?v=20251103"><img src="images/melis_onstage13.jpg?v=20251103" alt="On stage 13" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage13.jpg?v=20251103" download="melis-onstage-13.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage14.jpg?v=20251103"><img src="images/melis_onstage14.jpg?v=20251103" alt="On stage 14" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage14.jpg?v=20251103" download="melis-onstage-14.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage15.jpg?v=20251103"><img src="images/melis_onstage15.jpg?v=20251103" alt="On stage 15" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage15.jpg?v=20251103" download="melis-onstage-15.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage16.jpg?v=20251103"><img src="images/melis_onstage16.jpg?v=20251103" alt="On stage 16" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage16.jpg?v=20251103" download="melis-onstage-16.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage17.jpg?v=20251103"><img src="images/melis_onstage17.jpg?v=20251103" alt="On stage 17" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage17.jpg?v=20251103" download="melis-onstage-17.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_onstage18.jpg?v=20251103"><img src="images/melis_onstage18.jpg?v=20251103" alt="On stage 18" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_onstage18.jpg?v=20251103" download="melis-onstage-18.jpg">↓</a>
+        </div>
       </div>
     </div>
 
@@ -1579,13 +1646,34 @@
       <button class="gallery-arrow gallery-arrow-right" data-target="#private-track" data-dir="right" aria-label="Next"></button>
 
       <div class="carousel-track" id="private-track">
-        <div class="img-frame"><img src="images/melis_private1.jpg?v=20251103" alt="Private 1" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_private2.jpg?v=20251103" alt="Private 2" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_private3.jpg?v=20251103" alt="Private 3" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_private4.jpg?v=20251103" alt="Private 4" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_private5.jpg?v=20251103" alt="Private 5" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_private6.jpg?v=20251103" alt="Private 6" loading="lazy"></div>
-        <div class="img-frame"><img src="images/melis_private7.jpg?v=20251103" alt="Private 7" loading="lazy"></div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_private1.jpg?v=20251103"><img src="images/melis_private1.jpg?v=20251103" alt="Private 1" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_private1.jpg?v=20251103" download="melis-private-1.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_private2.jpg?v=20251103"><img src="images/melis_private2.jpg?v=20251103" alt="Private 2" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_private2.jpg?v=20251103" download="melis-private-2.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_private3.jpg?v=20251103"><img src="images/melis_private3.jpg?v=20251103" alt="Private 3" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_private3.jpg?v=20251103" download="melis-private-3.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_private4.jpg?v=20251103"><img src="images/melis_private4.jpg?v=20251103" alt="Private 4" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_private4.jpg?v=20251103" download="melis-private-4.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_private5.jpg?v=20251103"><img src="images/melis_private5.jpg?v=20251103" alt="Private 5" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_private5.jpg?v=20251103" download="melis-private-5.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_private6.jpg?v=20251103"><img src="images/melis_private6.jpg?v=20251103" alt="Private 6" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_private6.jpg?v=20251103" download="melis-private-6.jpg">↓</a>
+        </div>
+        <div class="img-frame">
+          <a class="gallery-open-link" href="images/melis_private7.jpg?v=20251103"><img src="images/melis_private7.jpg?v=20251103" alt="Private 7" loading="lazy"></a>
+          <a class="download-badge" href="images/melis_private7.jpg?v=20251103" download="melis-private-7.jpg">↓</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1688,12 +1776,11 @@
 <div class="lightbox-overlay" id="lightbox">
   <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous image">‹</button>
   <div class="lightbox-inner">
+    <a id="lightbox-download" class="lightbox-download" href="#" download="melis-photo.jpg">Download</a>
     <img id="lightbox-img" src="" alt="Enlarged image">
   </div>
   <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">›</button>
 </div>
-
-<div class="site-protection-message" id="protectionMessage">Content is protected.</div>
 
 <script>
 document.documentElement.classList.remove('preload');
@@ -1833,27 +1920,29 @@ setupRepToggle('[data-collapse="concert"]','concert-content');
 
 const lightboxEl = document.getElementById('lightbox');
 const lightboxImgEl = document.getElementById('lightbox-img');
+const lightboxDownloadEl = document.getElementById('lightbox-download');
 const prevBtn = document.querySelector('.lightbox-prev');
 const nextBtn = document.querySelector('.lightbox-next');
 
 const galleryImages = Array.from(document.querySelectorAll('.img-frame img'));
 let currentImgIndex = -1;
 
-function isPrivateGalleryImage(img) {
-  return !!img.closest('#private-track');
+function getDownloadFilename(img) {
+  const src = img.getAttribute('src') || '';
+  const clean = src.split('?')[0].split('/').pop() || 'melis-photo.jpg';
+  return clean;
 }
 
 function syncLightboxDownloadState() {
   if (currentImgIndex < 0 || !galleryImages[currentImgIndex]) {
-    lightboxImgEl.removeAttribute('data-private-download');
+    lightboxDownloadEl.setAttribute('href', '#');
+    lightboxDownloadEl.setAttribute('download', 'melis-photo.jpg');
     return;
   }
 
-  if (isPrivateGalleryImage(galleryImages[currentImgIndex])) {
-    lightboxImgEl.setAttribute('data-private-download', 'true');
-  } else {
-    lightboxImgEl.removeAttribute('data-private-download');
-  }
+  const currentSrc = galleryImages[currentImgIndex].src;
+  lightboxDownloadEl.setAttribute('href', currentSrc);
+  lightboxDownloadEl.setAttribute('download', getDownloadFilename(galleryImages[currentImgIndex]));
 }
 
 function openLightbox(index) {
@@ -1866,7 +1955,6 @@ function openLightbox(index) {
 function closeLightbox() {
   lightboxEl.classList.remove('active');
   lightboxImgEl.src = "";
-  lightboxImgEl.removeAttribute('data-private-download');
   currentImgIndex = -1;
 }
 
@@ -1880,9 +1968,18 @@ function showRelative(delta) {
 
 galleryImages.forEach((img, index) => {
   img.addEventListener('click', (e) => {
+    e.preventDefault();
     e.stopPropagation();
     openLightbox(index);
   });
+
+  const openLink = img.closest('.gallery-open-link');
+  if (openLink) {
+    openLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  }
 });
 
 lightboxEl.addEventListener('click', () => {
