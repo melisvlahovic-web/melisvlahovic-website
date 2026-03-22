@@ -79,6 +79,63 @@
 
   <script>
     (function () {
+      const blockedMessageText = 'Content is protected.';
+      let blockedMessageTimer;
+
+      function showBlockedMessage() {
+        const existing = document.getElementById('protectionMessage');
+        if (!existing) return;
+        existing.textContent = blockedMessageText;
+        existing.classList.add('show');
+        clearTimeout(blockedMessageTimer);
+        blockedMessageTimer = setTimeout(() => {
+          existing.classList.remove('show');
+        }, 1800);
+      }
+
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        showBlockedMessage();
+        return false;
+      }, true);
+
+      document.addEventListener('dragstart', function (e) {
+        if (e.target && e.target.tagName === 'IMG') {
+          e.preventDefault();
+          e.stopPropagation();
+          showBlockedMessage();
+          return false;
+        }
+      }, true);
+
+      document.addEventListener('selectstart', function (e) {
+        const tag = e.target && e.target.tagName ? e.target.tagName : '';
+        if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+      }, true);
+
+      document.addEventListener('keydown', function (e) {
+        const key = (e.key || '').toLowerCase();
+        const blocked =
+          key === 'f12' ||
+          ((e.ctrlKey || e.metaKey) && key === 'u') ||
+          ((e.ctrlKey || e.metaKey) && key === 's') ||
+          ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'i') ||
+          ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'j') ||
+          ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'c');
+
+        if (blocked) {
+          e.preventDefault();
+          e.stopPropagation();
+          showBlockedMessage();
+          return false;
+        }
+      }, true);
+
       const root = document.documentElement;
       const showPage = () => root.classList.remove('preload');
 
@@ -144,6 +201,9 @@
     background-color: #0a1a22;
     -webkit-font-smoothing: antialiased;
     transition: opacity .28s ease;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
   }
 
   a { color: inherit; text-decoration-thickness: .08em; text-underline-offset: .18em; }
@@ -154,6 +214,17 @@
   textarea:focus-visible {
     outline: 2px solid #ffffff;
     outline-offset: 3px;
+  }
+
+  input, textarea {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  img {
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: auto;
   }
 
   .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
@@ -257,9 +328,6 @@
     align-items: center;
     padding-bottom: 120px;
     font-family: var(--font-sans);
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
   }
 
   .hero::after {
@@ -610,9 +678,6 @@
     height: 100%;
     object-fit: cover;
     cursor: zoom-in;
-    user-select: none;
-    -webkit-user-drag: none;
-    pointer-events: auto;
   }
 
   .gallery-arrow {
@@ -1267,7 +1332,7 @@
   </style>
 </head>
 
-<body>
+<body oncontextmenu="return false;">
 <header class="nav">
   <div class="container">
     <div class="nav-inner">
@@ -1876,33 +1941,13 @@ nextBtn.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-  if (lightboxEl.classList.contains('active')) {
-    if (e.key === 'Escape') {
-      closeLightbox();
-      return;
-    } else if (e.key === 'ArrowRight') {
-      showRelative(1);
-      return;
-    } else if (e.key === 'ArrowLeft') {
-      showRelative(-1);
-      return;
-    }
-  }
-
-  const key = e.key.toLowerCase();
-  const blocked =
-    key === 'f12' ||
-    ((e.ctrlKey || e.metaKey) && key === 'u') ||
-    ((e.ctrlKey || e.metaKey) && key === 's') ||
-    ((e.ctrlKey || e.metaKey) && key === 'c') ||
-    ((e.ctrlKey || e.metaKey) && key === 'a') ||
-    ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'i') ||
-    ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'j') ||
-    ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'c');
-
-  if (blocked) {
-    e.preventDefault();
-    showProtectionMessage();
+  if (!lightboxEl.classList.contains('active')) return;
+  if (e.key === 'Escape') {
+    closeLightbox();
+  } else if (e.key === 'ArrowRight') {
+    showRelative(1);
+  } else if (e.key === 'ArrowLeft') {
+    showRelative(-1);
   }
 });
 
@@ -1935,36 +1980,6 @@ toTopBtn.addEventListener('click', () => {
 });
 
 toggleToTopButton();
-
-const protectionMessageEl = document.getElementById('protectionMessage');
-let protectionMessageTimer;
-
-function showProtectionMessage() {
-  protectionMessageEl.classList.add('show');
-  clearTimeout(protectionMessageTimer);
-  protectionMessageTimer = setTimeout(() => {
-    protectionMessageEl.classList.remove('show');
-  }, 1800);
-}
-
-document.addEventListener('contextmenu', (e) => {
-  e.preventDefault();
-  showProtectionMessage();
-});
-
-document.addEventListener('dragstart', (e) => {
-  if (e.target.tagName === 'IMG') {
-    e.preventDefault();
-    showProtectionMessage();
-  }
-});
-
-document.addEventListener('selectstart', (e) => {
-  const allowTags = ['INPUT', 'TEXTAREA'];
-  if (!allowTags.includes(e.target.tagName)) {
-    e.preventDefault();
-  }
-});
 </script>
 
 </body>
