@@ -184,13 +184,36 @@
 
   .nav-inner {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    min-height: 78px;
     padding: 14px 0;
     text-align: center;
     position: relative;
+  }
+
+  .nav-logo {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 3;
+  }
+
+  .nav-logo img {
+    display: block;
+    height: 42px;
+    width: auto;
+    opacity: 0.95;
+  }
+
+  nav.top-nav {
+    position: relative;
+    z-index: 1;
   }
 
   nav.top-nav ul {
@@ -219,11 +242,13 @@
 
   .nav-right-row {
     position: absolute;
-    right: 16px;
-    top: 12px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     gap: 10px;
+    z-index: 3;
   }
 
   .lang-switcher-top {
@@ -255,6 +280,37 @@
   .lang-switcher-top button.active {
     text-decoration: underline;
     text-underline-offset: 2px;
+  }
+
+  .menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .menu-toggle .bars {
+    display: grid;
+    gap: 4px;
+  }
+
+  .menu-toggle .bars span {
+    display: block;
+    width: 17px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 999px;
+  }
+
+  .mobile-menu-panel {
+    display: none;
   }
 
   .hero {
@@ -1014,20 +1070,28 @@
     background: rgba(255,255,255,0.1);
   }
 
-  @media (max-width: 980px) {
-    .nav-right-row {
-      position: static;
-      width: 100%;
-      justify-content: center;
-      margin-top: 4px;
+  @media (max-width: 1100px) {
+    nav.top-nav ul {
+      gap: 18px;
     }
 
-    .nav-inner {
-      padding-bottom: 12px;
+    nav.top-nav a {
+      font-size: .76rem;
+      letter-spacing: .06em;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .nav-logo img {
+      height: 38px;
     }
 
     nav.top-nav ul {
       gap: 16px;
+    }
+
+    nav.top-nav a {
+      font-size: .72rem;
     }
   }
 
@@ -1040,12 +1104,95 @@
       padding: 0 16px;
     }
 
+    .nav-inner {
+      min-height: 86px;
+      justify-content: flex-start;
+      padding: 12px 0;
+    }
+
+    .nav-logo {
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .nav-logo img {
+      height: 36px;
+    }
+
+    nav.top-nav {
+      display: none;
+    }
+
+    .nav-right-row {
+      right: 0;
+      top: 10px;
+      transform: none;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .lang-switcher-top {
+      padding: 0;
+      background: transparent;
+      border: 0;
+      font-size: .74rem;
+      letter-spacing: .14em;
+      opacity: 0.92;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.55);
+    }
+
+    .lang-switcher-top button {
+      padding: 0 2px;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+    }
+
+    .mobile-menu-panel {
+      display: block;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height .28s ease, opacity .2s ease, padding .2s ease;
+      background: rgba(9,18,24,0.92);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .mobile-menu-panel.open {
+      max-height: 420px;
+      opacity: 1;
+      padding: 12px 0 14px;
+    }
+
+    .mobile-menu-panel a {
+      display: block;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 600;
+      font-size: .86rem;
+      text-decoration: none;
+      color: var(--text);
+      padding: 12px 18px;
+    }
+
+    .mobile-menu-panel a:hover,
+    .mobile-menu-panel a:focus {
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+    }
+
     .hero {
       background-attachment: scroll;
       min-height: 100svh;
-      padding-top: 40px;
-      padding-bottom: 72px;
-      align-items: center;
+      padding-top: 24px;
+      padding-bottom: 86px;
+      align-items: flex-start;
+      background-position: 58% 50%;
     }
 
     .hero::after {
@@ -1054,13 +1201,22 @@
 
     .hero-inner {
       max-width: 100%;
-      margin-top: 24px;
+      margin-top: 36px;
+      padding-top: 18px;
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100svh - 130px);
+    }
+
+    .hero-name-block {
+      margin-top: 8px;
     }
 
     .hero-name-main {
       white-space: normal;
-      line-height: 1.1;
-      font-size: clamp(2rem, 9vw, 3rem);
+      line-height: 1.05;
+      font-size: clamp(2.05rem, 8.6vw, 3rem);
+      letter-spacing: .16em;
     }
 
     .hero-name-part {
@@ -1068,27 +1224,33 @@
     }
 
     .hero-name-part + .hero-name-part {
-      margin-top: 8px;
+      margin-top: 10px;
     }
 
     .hero-name-role {
-      letter-spacing: .2em;
+      letter-spacing: .22em;
+      margin-top: 14px;
     }
 
     .hero-lines {
-      margin: 22px auto 26px;
-      font-size: .95rem;
+      margin: auto auto 18px auto;
+      font-size: 1rem;
+      padding-top: 0;
     }
 
     .cta-row {
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      margin-top: 0;
+      margin-bottom: 14px;
     }
 
     .cta-row .btn {
       width: 100%;
-      max-width: 280px;
+      max-width: 300px;
+      padding: 14px 20px;
+      font-size: .96rem;
     }
 
     #biography.std-section {
@@ -1133,15 +1295,6 @@
   }
 
   @media (max-width: 640px) {
-    nav.top-nav ul {
-      gap: 10px 14px;
-    }
-
-    nav.top-nav a {
-      font-size: .74rem;
-      letter-spacing: .06em;
-    }
-
     .carousel-block {
       padding: 16px 14px 20px;
       border-radius: 18px;
@@ -1182,6 +1335,19 @@
   }
 
   @media (max-width: 420px) {
+    .nav-logo img {
+      height: 32px;
+    }
+
+    .lang-switcher-top {
+      font-size: .7rem;
+    }
+
+    .menu-toggle {
+      width: 40px;
+      height: 40px;
+    }
+
     .hero-name-role {
       font-size: .76rem;
       letter-spacing: .16em;
@@ -1213,6 +1379,10 @@
 <header class="nav">
   <div class="container">
     <div class="nav-inner">
+      <a href="#home" class="nav-logo" aria-label="Melis Vlahović home">
+        <img src="images/mv-logo.svg" alt="MV logo">
+      </a>
+
       <nav aria-label="Primary" class="top-nav">
         <ul>
           <li><a href="#home" data-i18n="nav_about">About</a></li>
@@ -1229,8 +1399,27 @@
         <div class="lang-switcher-top" role="group" aria-label="Language switcher">
           <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>/<button type="button" data-lang="de" aria-pressed="false">DE</button>
         </div>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
       </div>
     </div>
+  </div>
+
+  <div class="mobile-menu-panel" id="mobileMenu">
+    <a href="#home" data-i18n="nav_about">About</a>
+    <a href="#biography" data-i18n="nav_biography">Biography</a>
+    <a href="#calendar" data-i18n="nav_calendar">Calendar</a>
+    <a href="#repertoire" data-i18n="nav_repertoire">Repertoire</a>
+    <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+    <a href="#recordings" data-i18n="nav_recordings">Recordings</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
   </div>
 </header>
 
@@ -1850,6 +2039,23 @@ toTopBtn.addEventListener('click', () => {
 });
 
 toggleToTopButton();
+
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
 </script>
 
 </body>
