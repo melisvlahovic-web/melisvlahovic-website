@@ -875,6 +875,35 @@
     font-size: .8rem;
   }
 
+  .legal-link {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: var(--muted);
+    text-decoration: none;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .legal-link:hover,
+  .legal-link:focus {
+    color: var(--text);
+  }
+
+  .legal-card h3 {
+    margin-top: 22px;
+    margin-bottom: 8px;
+    font-size: .95rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .legal-card p {
+    margin: 10px 0;
+    line-height: 1.7;
+  }
+
   .lightbox-overlay {
     position: fixed;
     inset: 0;
@@ -1547,7 +1576,7 @@
         <h3 data-i18n="contact_bookings">Bookings & Press</h3>
         <p class="lead-small" data-i18n="contact_intro">For engagements, interviews, and media requests:</p>
 
-        <p>Please use the contact form. Email avaliable upon request.</p>
+        <p data-i18n="contact_form_note">Please use the contact form. Email available upon request.</p>
 
         <div class="socials" aria-label="Social links" style="margin-top:12px;">
           <a class="chip-inline" href="https://www.instagram.com/melisvlahovic/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -1601,8 +1630,111 @@
   </section>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Melis Vlahović · <a href="#contact" style="color:var(--muted); text-decoration:none;" data-i18n="footer_contact">Contact</a></p>
+    <p>
+      © <span id="year"></span> Melis Vlahović ·
+      <a href="#contact" style="color:var(--muted); text-decoration:none;" data-i18n="footer_contact">Contact</a> ·
+      <button type="button" class="legal-link" id="impressumLink" data-i18n="footer_impressum">Impressum</button> ·
+      <button type="button" class="legal-link" id="datenschutzLink" data-i18n="footer_privacy">Datenschutz</button>
+    </p>
   </footer>
+
+  <section id="impressum" class="std-section" style="display:none;">
+    <h2 data-i18n="footer_impressum">Impressum</h2>
+
+    <div class="card legal-card">
+      <div data-lang-section="de">
+        <p><strong>Angaben gemäß § 5 TMG</strong></p>
+
+        <p>
+          Melis Vlahović<br>
+          E-Mail: melis.vlahovic@gmail.com
+        </p>
+
+        <h3>Haftung für Inhalte</h3>
+        <p>Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen.</p>
+
+        <h3>Haftung für Links</h3>
+        <p>Diese Website enthält Links zu externen Websites Dritter. Für deren Inhalte wird keine Haftung übernommen.</p>
+
+        <h3>Urheberrecht</h3>
+        <p>Die durch die Seitenbetreiberin erstellten Inhalte und Werke auf dieser Website unterliegen dem Urheberrecht.</p>
+      </div>
+
+      <div data-lang-section="en" style="display:none;">
+        <p><strong>Information according to § 5 TMG</strong></p>
+
+        <p>
+          Melis Vlahović<br>
+          Email: melis.vlahovic@gmail.com
+        </p>
+
+        <h3>Liability for content</h3>
+        <p>The contents of this website have been created with great care. However, no guarantee is given for the accuracy, completeness, or timeliness of the content.</p>
+
+        <h3>Liability for links</h3>
+        <p>This website contains links to external third-party websites. No liability is assumed for their content.</p>
+
+        <h3>Copyright</h3>
+        <p>All content created by the site owner on this website is subject to copyright law.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="datenschutz" class="std-section" style="display:none;">
+    <h2 data-i18n="privacy_title">Datenschutzerklärung</h2>
+
+    <div class="card legal-card">
+      <div data-lang-section="de">
+        <p data-i18n="privacy_intro">Diese Website verarbeitet personenbezogene Daten nur im technisch und funktional notwendigen Umfang.</p>
+
+        <p>
+          <strong data-i18n="privacy_responsible">Verantwortlich:</strong><br>
+          Melis Vlahović<br>
+          E-Mail: melis.vlahovic@gmail.com
+        </p>
+
+        <p>
+          <strong data-i18n="privacy_logs_title">Server-Log-Dateien:</strong><br>
+          <span data-i18n="privacy_logs_text">Der Hosting-Anbieter dieser Website erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt.</span>
+        </p>
+
+        <p>
+          <strong data-i18n="privacy_contact_title">Kontaktaufnahme:</strong><br>
+          <span data-i18n="privacy_contact_text">Wenn Sie über das Kontaktformular oder per E-Mail Kontakt aufnehmen, werden Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</span>
+        </p>
+
+        <p>
+          <strong data-i18n="privacy_rights_title">Ihre Rechte:</strong><br>
+          <span data-i18n="privacy_rights_text">Sie haben das Recht auf Auskunft, Berichtigung und Löschung Ihrer personenbezogenen Daten im Rahmen der geltenden gesetzlichen Bestimmungen.</span>
+        </p>
+      </div>
+
+      <div data-lang-section="en" style="display:none;">
+        <p data-i18n="privacy_intro">This website processes personal data only to the extent technically necessary.</p>
+
+        <p>
+          <strong data-i18n="privacy_responsible">Responsible:</strong><br>
+          Melis Vlahović<br>
+          Email: melis.vlahovic@gmail.com
+        </p>
+
+        <p>
+          <strong data-i18n="privacy_logs_title">Server log files:</strong><br>
+          <span data-i18n="privacy_logs_text">The hosting provider automatically collects and stores information in server log files transmitted by your browser.</span>
+        </p>
+
+        <p>
+          <strong data-i18n="privacy_contact_title">Contact:</strong><br>
+          <span data-i18n="privacy_contact_text">If you contact us via form or email, your data will only be used to process your request.</span>
+        </p>
+
+        <p>
+          <strong data-i18n="privacy_rights_title">Your rights:</strong><br>
+          <span data-i18n="privacy_rights_text">You have the right to access, correct and delete your personal data in accordance with applicable laws.</span>
+        </p>
+      </div>
+    </div>
+  </section>
 
 </main>
 
@@ -1658,7 +1790,19 @@ const translations = {
     form_message: "Message",
     form_send: "Send",
     footer_contact: "Contact",
-    highlights_title: "Highlights"
+    footer_impressum: "Imprint",
+    footer_privacy: "Privacy Policy",
+    contact_form_note: "Please use the contact form. Email available upon request.",
+    highlights_title: "Highlights",
+    privacy_title: "Privacy Policy",
+    privacy_intro: "This website processes personal data only to the extent technically necessary.",
+    privacy_responsible: "Responsible:",
+    privacy_logs_title: "Server log files:",
+    privacy_logs_text: "The hosting provider automatically collects and stores information in server log files transmitted by your browser.",
+    privacy_contact_title: "Contact:",
+    privacy_contact_text: "If you contact us via form or email, your data will only be used to process your request.",
+    privacy_rights_title: "Your rights:",
+    privacy_rights_text: "You have the right to access, correct and delete your personal data in accordance with applicable laws."
   },
   de: {
     nav_about: "Über mich",
@@ -1695,7 +1839,19 @@ const translations = {
     form_message: "Nachricht",
     form_send: "Senden",
     footer_contact: "Kontakt",
-    highlights_title: "Highlights"
+    footer_impressum: "Impressum",
+    footer_privacy: "Datenschutz",
+    contact_form_note: "Bitte nutzen Sie das Kontaktformular. E-Mail auf Anfrage verfügbar.",
+    highlights_title: "Highlights",
+    privacy_title: "Datenschutzerklärung",
+    privacy_intro: "Diese Website verarbeitet personenbezogene Daten nur im technisch und funktional notwendigen Umfang.",
+    privacy_responsible: "Verantwortlich:",
+    privacy_logs_title: "Server-Log-Dateien:",
+    privacy_logs_text: "Der Hosting-Anbieter dieser Website erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt.",
+    privacy_contact_title: "Kontaktaufnahme:",
+    privacy_contact_text: "Wenn Sie über das Kontaktformular oder per E-Mail Kontakt aufnehmen, werden Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.",
+    privacy_rights_title: "Ihre Rechte:",
+    privacy_rights_text: "Sie haben das Recht auf Auskunft, Berichtigung und Löschung Ihrer personenbezogenen Daten im Rahmen der geltenden gesetzlichen Bestimmungen."
   }
 };
 
@@ -1846,6 +2002,32 @@ toTopBtn.addEventListener('click', () => {
 });
 
 toggleToTopButton();
+
+function toggleLegal(sectionId) {
+  const imp = document.getElementById('impressum');
+  const dat = document.getElementById('datenschutz');
+  const el = document.getElementById(sectionId);
+
+  const isAlreadyOpen = el.style.display === 'block';
+
+  imp.style.display = 'none';
+  dat.style.display = 'none';
+
+  if (!isAlreadyOpen) {
+    el.style.display = 'block';
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+document.getElementById('impressumLink').addEventListener('click', function (e) {
+  e.preventDefault();
+  toggleLegal('impressum');
+});
+
+document.getElementById('datenschutzLink').addEventListener('click', function (e) {
+  e.preventDefault();
+  toggleLegal('datenschutz');
+});
 </script>
 
 </body>
