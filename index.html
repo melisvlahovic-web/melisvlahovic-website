@@ -459,6 +459,26 @@
 
   .bio-highlights-card { grid-column: 1 / -1; }
 
+  .calendar-lang-wrap {
+    display: grid;
+    gap: 28px;
+  }
+
+  .calendar-group-title {
+    margin: 0 0 12px;
+    font-size: .9rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+  }
+
+  .calendar-subgrid {
+    display: grid;
+    gap: 18px;
+  }
+
   .rep-block { margin-bottom: 32px; }
 
   .rep-header-btn {
@@ -1371,30 +1391,169 @@
 
   <section id="calendar" class="std-section">
     <h2 data-i18n="section_calendar">Calendar</h2>
-    <div class="grid">
-      <article class="event card" itemscope itemtype="https://schema.org/Event">
-        <time itemprop="startDate" datetime="2026-06">June 2026</time>
-        <div>
-          <h3 itemprop="name"><em>Die Meistersinger von Nürnberg</em> — Lehrbuben</h3>
-          <p class="lead">
-            <span itemprop="location" itemscope itemtype="https://schema.org/Place">
-              <span itemprop="name">Theater Ulm</span>
-            </span>
-          </p>
-        </div>
-      </article>
 
-      <article class="event card" itemscope itemtype="https://schema.org/Event">
-        <time itemprop="startDate" datetime="2026-10">October 2026</time>
-        <div>
-          <h3 itemprop="name">Wagner/Loriot: <em>Der Ring an 1 Abend</em> — Wellgunde / Zweite Norne</h3>
-          <p class="lead">
-            <span itemprop="location" itemscope itemtype="https://schema.org/Place">
-              <span itemprop="name">Kammeroper Weißenhorn</span>
-            </span>
-          </p>
+    <div class="calendar-lang-wrap">
+      <!-- ENGLISH -->
+      <div data-lang-section="en">
+        <h3 class="calendar-group-title" data-i18n="calendar_upcoming">Upcoming Performances</h3>
+        <div class="calendar-subgrid">
+          <article class="event card" itemscope itemtype="https://schema.org/Event">
+            <time itemprop="startDate" datetime="2026-06">June 2026</time>
+            <div>
+              <h3 itemprop="name"><em>Die Meistersinger von Nürnberg</em> — Lehrbuben</h3>
+              <p class="lead">
+                <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                  <span itemprop="name">Theater Ulm</span>
+                </span>
+              </p>
+            </div>
+          </article>
+
+          <article class="event card" itemscope itemtype="https://schema.org/Event">
+            <time itemprop="startDate" datetime="2026-10">October 2026</time>
+            <div>
+              <h3 itemprop="name">Wagner/Loriot: <em>Der Ring an 1 Abend</em> — Wellgunde / Zweite Norne</h3>
+              <p class="lead">
+                <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                  <span itemprop="name">Kammeroper Weißenhorn</span>
+                </span>
+              </p>
+            </div>
+          </article>
         </div>
-      </article>
+
+        <h3 class="calendar-group-title" style="margin-top:24px;" data-i18n="calendar_past">Past Performances</h3>
+        <div class="calendar-subgrid">
+          <article class="event card">
+            <time datetime="2025-05">May 2025</time>
+            <div>
+              <h3><em>Weill: Aufstieg und Fall der Stadt Mahagonny</em> — Fünfte Mädchen</h3>
+              <p class="lead">Staatsoper Stuttgart</p>
+            </div>
+          </article>
+
+          <article class="event card">
+            <time datetime="2024-10">October 2024</time>
+            <div>
+              <h3><em>Gluck: Orfeo ed Euridice</em> — Euridice</h3>
+              <p class="lead">Kammeroper Weißenhorn</p>
+            </div>
+          </article>
+
+          <article class="event card">
+            <time datetime="2024-06">June 2024</time>
+            <div>
+              <h3><em>Weill: Aufstieg und Fall der Stadt Mahagonny</em> — Fünfte Mädchen</h3>
+              <p class="lead">Staatsoper Stuttgart</p>
+            </div>
+          </article>
+
+          <article class="event card">
+            <time datetime="2023-07">July 2023</time>
+            <div>
+              <h3><em>Poulenc: Dialogues des Carmélites</em> — Madame de Croissy</h3>
+              <p class="lead">Wilhelma Theater Stuttgart</p>
+            </div>
+          </article>
+
+          <article class="event card">
+            <time datetime="2021-11">November 2021</time>
+            <div>
+              <h3><em>Puccini: La Rondine</em> — Suzy</h3>
+              <p class="lead">National Theater Zagreb</p>
+            </div>
+          </article>
+
+          <article class="event card">
+            <time datetime="2021-07">July 2021</time>
+            <div>
+              <h3><em>Mozart: Le Nozze di Figaro ("Priča o ljubavi")</em> — Marcellina</h3>
+              <p class="lead">National Theater Zagreb</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- GERMAN -->
+      <div data-lang-section="de" style="display:none;">
+        <h3 class="calendar-group-title" data-i18n="calendar_upcoming">Kommende Termine</h3>
+        <div class="calendar-subgrid">
+          <article class="event card" itemscope itemtype="https://schema.org/Event">
+            <time itemprop="startDate" datetime="2026-06">Juni 2026</time>
+            <div>
+              <h3 itemprop="name"><em>Die Meistersinger von Nürnberg</em> — Lehrbuben</h3>
+              <p class="lead">
+                <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                  <span itemprop="name">Theater Ulm</span>
+                </span>
+              </p>
+            </div>
+          </article>
+
+          <article class="event card" itemscope itemtype="https://schema.org/Event">
+            <time itemprop="startDate" datetime="2026-10">Oktober 2026</time>
+            <div>
+              <h3 itemprop="name">Wagner/Loriot: <em>Der Ring an 1 Abend</em> — Wellgunde / Zweite Norne</h3>
+              <p class="lead">
+                <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                  <span itemprop="name">Kammeroper Weißenhorn</span>
+                </span>
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="calendar-group-title" style="margin-top:24px;" data-i18n="calendar_past">Vergangene Termine</h3>
+        <div class="calendar-subgrid">
+          <article class="event card">
+            <time datetime="2025-05">Mai 2025</time>
+            <div>
+              <h3><em>Weill: Aufstieg und Fall der Stadt Mahagonny</em> — Fünfte Mädchen</h3>
+              <p class="lead">Staatsoper Stuttgart</p>
+            </div>
+          </article>
+
+          <article class="event card">
+            <time datetime="2024-10">Oktober 2024</time>
+            <div>
+              <h3><em>Gluck: Orfeo ed Euridice</em> — Euridice</h3>
+              <p class="lead">Kammeroper Weißenhorn</p>
+            </div>
+          </article>
+
+          <article class="event card">
+            <time datetime="2024-06">Juni 2024</time>
+            <div>
+              <h3><em>Weill: Aufstieg und Fall der Stadt Mahagonny</em> — Fünfte Mädchen</h3>
+              <p class="lead">Staatsoper Stuttgart</p>
+            </div>
+          </article>
+
+          <article class="event card">
+            <time datetime="2023-07">Juli 2023</time>
+            <div>
+              <h3><em>Poulenc: Dialogues des Carmélites</em> — Madame de Croissy</h3>
+              <p class="lead">Wilhelma Theater Stuttgart</p>
+            </div>
+          </article>
+
+          <article class="event card">
+            <time datetime="2021-11">November 2021</time>
+            <div>
+              <h3><em>Puccini: La Rondine</em> — Suzy</h3>
+              <p class="lead">Nationaltheater Zagreb</p>
+            </div>
+          </article>
+
+          <article class="event card">
+            <time datetime="2021-07">Juli 2021</time>
+            <div>
+              <h3><em>Mozart: Le Nozze di Figaro ("Priča o ljubavi")</em> — Marcellina</h3>
+              <p class="lead">Nationaltheater Zagreb</p>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1768,6 +1927,8 @@ const translations = {
     hero_cta_watch: "Watch / Listen",
     section_biography: "Biography",
     section_calendar: "Calendar",
+    calendar_upcoming: "Upcoming Performances",
+    calendar_past: "Past Performances",
     section_repertoire: "Repertoire",
     rep_opera: "Opera",
     rep_concert: "Concert",
@@ -1817,6 +1978,8 @@ const translations = {
     hero_cta_watch: "Ansehen / Anhören",
     section_biography: "Biografie",
     section_calendar: "Kalender",
+    calendar_upcoming: "Kommende Termine",
+    calendar_past: "Vergangene Termine",
     section_repertoire: "Repertoire",
     rep_opera: "Oper",
     rep_concert: "Konzert",
