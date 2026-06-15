@@ -311,9 +311,8 @@
     background-position: 50% 50%;
     background-attachment: fixed;
     opacity: 0;
-    transform: scale(1.02);
-    animation: heroBgFadeIn 3.6s ease-out .05s forwards;
-    will-change: opacity, transform, filter;
+    animation: heroBgFadeIn 6s cubic-bezier(0.22, 1, 0.36, 1) .05s forwards;
+    will-change: opacity;
   }
 
   .hero::after {
@@ -434,13 +433,9 @@
   @keyframes heroBgFadeIn {
     from {
       opacity: 0;
-      transform: scale(1.02);
-      filter: blur(2px);
     }
     to {
       opacity: 1;
-      transform: scale(1);
-      filter: blur(0);
     }
   }
 
@@ -1649,26 +1644,26 @@
     <div class="bio-grid">
       <div class="bio-text-col" data-lang-section="en">
         <p class="lead">
-          Melis Vlahović, the Croatian mezzo-soprano based in Germany, made her debut at the Croatian National Theatre in Split as the Sorceress in Purcell’s <em>Dido and Aeneas</em>.
+          Croatian mezzo-soprano Melis Vlahović, based in Germany, made her debut at the Croatian National Theatre in Split as the Sorceress in Purcell’s <em>Dido and Aeneas</em>.
         </p>
         <p class="lead">
-          During her studies, she performed roles such as Dorabella
+          During her studies, she performed roles including Dorabella
           (<em>Così fan tutte</em>) and Idamante (<em>Idomeneo</em>). As a guest
-          at the Croatian National Theatre in Zagreb, she also appeared as
+          at the Croatian National Theatre in Zagreb, she appeared as
           Marcellina (<em>Le nozze di Figaro</em>) and Suzy
-          (<em>La rondine</em>). Further engagements led her to the Staatsoper
-          Stuttgart (as one of the “Six Girls” in Weill’s
-          <em>Aufstieg und Fall der Stadt Mahagonny</em>), the Wilhelma Theater
-          Stuttgart (as Madame de Croissy in Poulenc’s
-          <em>Dialogues des Carmélites</em>), and the Kammeroper Weißenhorn,
-          where she also interpreted the soprano role of Euridice
-          (<em>Orfeo ed Euridice</em>).
+          (<em>La rondine</em>). Further engagements have taken her to Staatsoper
+          Stuttgart as one of the “Six Girls” in Weill’s
+          <em>Aufstieg und Fall der Stadt Mahagonny</em>, to the Wilhelma Theater
+          Stuttgart as Madame de Croissy in Poulenc’s
+          <em>Dialogues des Carmélites</em>, and to Kammeroper Weißenhorn,
+          where she also interpreted the soprano role of Euridice in
+          <em>Orfeo ed Euridice</em>.
         </p>
         <p class="lead">
           She completed the postgraduate artistic programme of the Opera School
           (Bühnenexamen) at the Stuttgart University of Music and Performing Arts
           (HMDK) under the artistic guidance of Diana Haller. Upcoming engagements
-          include performances in Loriot’s <em>Wagner Ring 2.0</em> at the
+          include performances in Wagner’s <em>Der Ring 2.0</em> at
           Kammeroper Weißenhorn and in Wagner’s
           <em>Die Meistersinger von Nürnberg</em> at Theater Ulm.
         </p>
@@ -1676,28 +1671,28 @@
 
       <div class="bio-text-col" data-lang-section="de" style="display:none;">
         <p class="lead">
-          Melis Vlahović, die kroatische Mezzosopranistin mit Sitz in Deutschland, gab ihr Debüt am Kroatischen Nationaltheater in Split in der Rolle der Zauberin in Purcells <em>Dido and Aeneas</em>.
+          Die kroatische Mezzosopranistin Melis Vlahović, mit Sitz in Deutschland, gab ihr Debüt am Kroatischen Nationaltheater in Split als Zauberin in Purcells <em>Dido and Aeneas</em>.
         </p>
         <p class="lead">
           Während ihres Studiums sang sie unter anderem Dorabella
           (<em>Così fan tutte</em>) und Idamante (<em>Idomeneo</em>). Als Gast
-          am Kroatischen Nationaltheater Zagreb übernahm sie zudem die Rollen der
+          am Kroatischen Nationaltheater Zagreb übernahm sie außerdem die Rollen der
           Marcellina (<em>Le nozze di Figaro</em>) und der Suzy
           (<em>La rondine</em>). Weitere Engagements führten sie an die
-          Staatsoper Stuttgart (als eines der „Sechs Mädchen“ in Weills
-          <em>Aufstieg und Fall der Stadt Mahagonny</em>), an das Wilhelma
-          Theater Stuttgart (als Madame de Croissy in Poulencs
-          <em>Dialogues des Carmélites</em>) sowie an die Kammeroper Weißenhorn,
-          wo sie als Euridice (<em>Orfeo ed Euridice</em>) auch die Sopranpartie
+          Staatsoper Stuttgart als eines der „Sechs Mädchen“ in Weills
+          <em>Aufstieg und Fall der Stadt Mahagonny</em>, an das Wilhelma
+          Theater Stuttgart als Madame de Croissy in Poulencs
+          <em>Dialogues des Carmélites</em> sowie an die Kammeroper Weißenhorn,
+          wo sie als Euridice in <em>Orfeo ed Euridice</em> auch eine Sopranpartie
           interpretierte.
         </p>
         <p class="lead">
           Ihr Studium an der Hochschule für Musik und Darstellende Kunst
           Stuttgart (HMDK) schloss sie unter der künstlerischen Betreuung von
           Diana Haller mit dem Bühnenexamen (Opernschule) ab. Zukünftige
-          Engagements beinhalten eine Mitwirkung in Loriots
-          <em>Wagner Ring 2.0</em> an der Kammeroper Weißenhorn sowie in
-          Wagners <em>Die Meistersinger von Nürnberg</em> am Theater Ulm.
+          Engagements umfassen Auftritte in Wagners <em>Der Ring 2.0</em>
+          an der Kammeroper Weißenhorn sowie in Wagners
+          <em>Die Meistersinger von Nürnberg</em> am Theater Ulm.
         </p>
       </div>
 
@@ -1744,7 +1739,7 @@
           <article class="event card" itemscope itemtype="https://schema.org/Event">
             <time itemprop="startDate" datetime="2026-10">October 2026</time>
             <div>
-              <h3 itemprop="name">Wagner/Loriot: <em>Der Ring an 1 Abend</em> — Wellgunde / Zweite Norne</h3>
+              <h3 itemprop="name">Wagner: <em>Der Ring 2.0</em> — Wellgunde / Zweite Norne</h3>
               <p class="lead">
                 <span itemprop="location" itemscope itemtype="https://schema.org/Place">
                   <span itemprop="name">Kammeroper Weißenhorn</span>
@@ -1806,7 +1801,7 @@
               <article class="event card">
                 <time datetime="2021-07">July 2021</time>
                 <div>
-                  <h3><em>Mozart: Le Nozze di Figaro ("Priča o ljubavi")</em> — Marcellina</h3>
+                  <h3><em>Mozart: Le nozze di Figaro</em> („Priča o ljubavi”) — Marcellina</h3>
                   <p class="lead">National Theater Zagreb</p>
                 </div>
               </article>
@@ -1833,7 +1828,7 @@
           <article class="event card" itemscope itemtype="https://schema.org/Event">
             <time itemprop="startDate" datetime="2026-10">Oktober 2026</time>
             <div>
-              <h3 itemprop="name">Wagner/Loriot: <em>Der Ring an 1 Abend</em> — Wellgunde / Zweite Norne</h3>
+              <h3 itemprop="name">Wagner: <em>Der Ring 2.0</em> — Wellgunde / Zweite Norne</h3>
               <p class="lead">
                 <span itemprop="location" itemscope itemtype="https://schema.org/Place">
                   <span itemprop="name">Kammeroper Weißenhorn</span>
@@ -1895,7 +1890,7 @@
               <article class="event card">
                 <time datetime="2021-07">Juli 2021</time>
                 <div>
-                  <h3><em>Mozart: Le Nozze di Figaro ("Priča o ljubavi")</em> — Marcellina</h3>
+                  <h3><em>Mozart: Le nozze di Figaro</em> („Priča o ljubavi”) — Marcellina</h3>
                   <p class="lead">Nationaltheater Zagreb</p>
                 </div>
               </article>
