@@ -311,8 +311,9 @@
     background-position: 50% 50%;
     background-attachment: fixed;
     opacity: 0;
-    animation: heroBgFadeIn 5s ease forwards;
-    will-change: opacity;
+    transform: scale(1.02);
+    animation: heroBgFadeIn 3.6s ease-out .05s forwards;
+    will-change: opacity, transform, filter;
   }
 
   .hero::after {
@@ -431,8 +432,16 @@
   }
 
   @keyframes heroBgFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+      transform: scale(1.02);
+      filter: blur(2px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
   }
 
   @keyframes heroTextSlideUp {
@@ -1412,6 +1421,7 @@
     .hero::before {
       background-attachment: scroll;
       inset: -18px;
+      transform: translateY(22px) scale(1.04);
     }
 
     .hero::after {
