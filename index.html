@@ -132,7 +132,7 @@
   }
 
   html.preload body {
-    opacity: 0;
+    opacity: 1;
   }
 
   body {
@@ -310,9 +310,9 @@
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-attachment: fixed;
-    opacity: 0;
-    animation: heroBgFadeIn 6s cubic-bezier(0.22, 1, 0.36, 1) .05s forwards;
-    will-change: opacity;
+    opacity: 1;
+    animation: none;
+    will-change: auto;
   }
 
   .hero::after {
@@ -670,34 +670,22 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    display: grid;
-    gap: 8px;
-    font-size: .9rem;
-    line-height: 1.4;
+    columns: 2;
+    column-gap: 34px;
+    font-size: .92rem;
+    line-height: 1.75;
+    color: #d8e2e6;
   }
 
   .rep-role-list li {
-    background: rgba(0,0,0,0.24);
+    break-inside: avoid;
+    margin: 0 0 6px;
     padding: 0;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.13);
-    box-shadow: var(--shadow-soft);
-    overflow: hidden;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
   }
-
-  .rep-item-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr;
-    gap: 0;
-    align-items: stretch;
-  }
-
-  .rep-item-grid span {
-    padding: 10px 12px;
-    border-right: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .rep-item-grid span:last-child { border-right: 0; }
 
   .rep-composer {
     color: #ffffff;
@@ -712,22 +700,80 @@
     color: var(--muted);
   }
 
-  .rep-simple-item {
+
+  /* Clickable accordion cards for performances only */
+  .event.card {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .event.card::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid rgba(255,255,255,0.78);
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.8));
+    transition: transform .22s ease;
+  }
+
+  .event.card.accordion-open::after {
+    transform: rotate(180deg);
+  }
+
+  .event.card h3 {
+    padding-right: 44px;
+  }
+
+  .accordion-details {
+    display: none;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.13);
+    color: var(--muted);
+    font-size: .9rem;
+    line-height: 1.55;
+  }
+
+  .accordion-open > .accordion-details {
     display: block;
-    padding: 10px 12px;
+  }
+
+  .accordion-details ul {
+    margin: 0;
+    padding-left: 1.15rem;
+  }
+
+  .accordion-details li {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 4px;
+    cursor: default;
+    overflow: visible;
+  }
+
+  .accordion-details li::after {
+    content: none;
+  }
+
+  .accordion-hint {
+    margin: 10px 0 0;
+    color: rgba(238,242,246,0.52);
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
   }
 
   @media (max-width: 640px) {
-    .rep-item-grid {
-      grid-template-columns: 1fr;
+    .rep-role-list {
+      columns: 1;
     }
-
-    .rep-item-grid span {
-      border-right: 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .rep-item-grid span:last-child { border-bottom: 0; }
   }
 
   .carousel-block {
@@ -1725,7 +1771,7 @@
         <h3 class="calendar-group-title" data-i18n="calendar_upcoming">Upcoming Performances</h3>
         <div class="calendar-subgrid">
           <article class="event card" itemscope itemtype="https://schema.org/Event">
-            <time itemprop="startDate" datetime="2026-06">June 2026</time>
+            <time itemprop="startDate" datetime="2026-06">June / July 2026</time>
             <div>
               <h3 itemprop="name"><em>Die Meistersinger von Nürnberg</em> — Lehrbuben</h3>
               <p class="lead">
@@ -1734,17 +1780,31 @@
                 </span>
               </p>
             </div>
+            <div class="accordion-details">
+              <ul>
+                <li><strong>Performances:</strong> 4, 7, 13, 21, 27 June &amp; 5 July 2026</li>
+                <li><strong>Conductor:</strong> Felix Bender</li>
+                <li><strong>Director:</strong> Kay Metzger</li>
+              </ul>
+            </div>
           </article>
 
           <article class="event card" itemscope itemtype="https://schema.org/Event">
             <time itemprop="startDate" datetime="2026-10">October 2026</time>
             <div>
-              <h3 itemprop="name">Wagner: <em>Der Ring 2.0</em> — Wellgunde / Zweite Norne</h3>
+              <h3 itemprop="name">Wagner: <em>Der Ring 2.0</em> — Wellgunde / Second Norn</h3>
               <p class="lead">
                 <span itemprop="location" itemscope itemtype="https://schema.org/Place">
                   <span itemprop="name">Kammeroper Weißenhorn</span>
                 </span>
               </p>
+            </div>
+            <div class="accordion-details">
+              <ul>
+                <li><strong>Performances:</strong> TBA</li>
+                <li><strong>Conductor:</strong> TBA</li>
+                <li><strong>Director:</strong> TBA</li>
+              </ul>
             </div>
           </article>
         </div>
@@ -1759,10 +1819,17 @@
           <div class="rep-content" id="past-en-content" hidden>
             <div class="calendar-subgrid" style="margin-top:16px;">
               <article class="event card">
-                <time datetime="2025-05">May 2025</time>
+                <time datetime="2025-05">April / May 2025</time>
                 <div>
-                  <h3><em>Weill: Aufstieg und Fall der Stadt Mahagonny</em> — Fünfte Mädchen</h3>
+                  <h3><em>Weill: Aufstieg und Fall der Stadt Mahagonny</em> — Fifth Girl</h3>
                   <p class="lead">Staatsoper Stuttgart</p>
+                </div>
+                <div class="accordion-details">
+                  <ul>
+                    <li><strong>Performances:</strong> 16, 19, 22, 26, 29 April &amp; 9 May 2025</li>
+                    <li><strong>Conductor:</strong> Michele Gamba</li>
+                    <li><strong>Director:</strong> Ulrike Schwab</li>
+                  </ul>
                 </div>
               </article>
 
@@ -1772,37 +1839,70 @@
                   <h3><em>Gluck: Orfeo ed Euridice</em> — Euridice</h3>
                   <p class="lead">Kammeroper Weißenhorn</p>
                 </div>
-              </article>
-
-              <article class="event card">
-                <time datetime="2024-06">June 2024</time>
-                <div>
-                  <h3><em>Weill: Aufstieg und Fall der Stadt Mahagonny</em> — Fünfte Mädchen</h3>
-                  <p class="lead">Staatsoper Stuttgart</p>
+                <div class="accordion-details">
+                  <ul>
+                    <li><strong>Conductor:</strong> Eufemia Manfredi</li>
+                    <li><strong>Director:</strong> Diana Haller</li>
+                  </ul>
                 </div>
               </article>
 
               <article class="event card">
-                <time datetime="2023-07">July 2023</time>
+                <time datetime="2024-06">May / June 2024</time>
+                <div>
+                  <h3><em>Weill: Aufstieg und Fall der Stadt Mahagonny</em> — Fifth Girl</h3>
+                  <p class="lead">Staatsoper Stuttgart</p>
+                </div>
+                <div class="accordion-details">
+                  <ul>
+                    <li><strong>Performances:</strong> 11, 15, 26, 28 May &amp; 1, 8, 11, 29 June 2024</li>
+                    <li><strong>Conductors:</strong> Cornelius Meister, Luka Hauser</li>
+                    <li><strong>Director:</strong> Ulrike Schwab</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="event card">
+                <time datetime="2023-07">June / July 2023</time>
                 <div>
                   <h3><em>Poulenc: Dialogues des Carmélites</em> — Madame de Croissy</h3>
                   <p class="lead">Wilhelma Theater Stuttgart</p>
                 </div>
+                <div class="accordion-details">
+                  <ul>
+                    <li><strong>Performances:</strong> 8, 10, 12, 14, 16, 26, 28, 30 June 2023</li>
+                    <li><strong>Conductor:</strong> Bernhard Epstein</li>
+                    <li><strong>Director:</strong> Franziska Severin</li>
+                  </ul>
+                </div>
               </article>
 
               <article class="event card">
-                <time datetime="2021-11">November 2021</time>
+                <time datetime="2021-11">October / November 2021</time>
                 <div>
                   <h3><em>Puccini: La Rondine</em> — Suzy</h3>
-                  <p class="lead">National Theater Zagreb</p>
+                  <p class="lead">Croatian National Theatre Zagreb</p>
+                </div>
+                <div class="accordion-details">
+                  <ul>
+                    <li><strong>Performances:</strong> 28, 30 October &amp; 8 November 2021</li>
+                    <li><strong>Conductor:</strong> Lorenzo Passerini</li>
+                    <li><strong>Director:</strong> Hugo de Ana</li>
+                  </ul>
                 </div>
               </article>
 
               <article class="event card">
                 <time datetime="2021-07">July 2021</time>
                 <div>
-                  <h3><em>Mozart: Le nozze di Figaro</em> („Priča o ljubavi”) — Marcellina</h3>
-                  <p class="lead">National Theater Zagreb</p>
+                  <h3><em>Mozart: Le nozze di Figaro</em> (“Priča o ljubavi”) — Marcellina</h3>
+                  <p class="lead">Croatian National Theatre Zagreb</p>
+                </div>
+                <div class="accordion-details">
+                  <ul>
+                    <li><strong>Conductor:</strong> Lana Bradić</li>
+                    <li><strong>Director:</strong> Giorgio Surian</li>
+                  </ul>
                 </div>
               </article>
             </div>
@@ -1814,7 +1914,7 @@
         <h3 class="calendar-group-title" data-i18n="calendar_upcoming">Kommende Termine</h3>
         <div class="calendar-subgrid">
           <article class="event card" itemscope itemtype="https://schema.org/Event">
-            <time itemprop="startDate" datetime="2026-06">Juni 2026</time>
+            <time itemprop="startDate" datetime="2026-06">Juni / Juli 2026</time>
             <div>
               <h3 itemprop="name"><em>Die Meistersinger von Nürnberg</em> — Lehrbuben</h3>
               <p class="lead">
@@ -1822,6 +1922,13 @@
                   <span itemprop="name">Theater Ulm</span>
                 </span>
               </p>
+            </div>
+            <div class="accordion-details">
+              <ul>
+                <li><strong>Vorstellungen:</strong> 4., 7., 13., 21., 27. Juni &amp; 5. Juli 2026</li>
+                <li><strong>Musikalische Leitung:</strong> Felix Bender</li>
+                <li><strong>Inszenierung:</strong> Kay Metzger</li>
+              </ul>
             </div>
           </article>
 
@@ -1834,6 +1941,13 @@
                   <span itemprop="name">Kammeroper Weißenhorn</span>
                 </span>
               </p>
+            </div>
+            <div class="accordion-details">
+              <ul>
+                <li><strong>Vorstellungen:</strong> TBA</li>
+                <li><strong>Musikalische Leitung:</strong> TBA</li>
+                <li><strong>Inszenierung:</strong> TBA</li>
+              </ul>
             </div>
           </article>
         </div>
@@ -1848,10 +1962,17 @@
           <div class="rep-content" id="past-de-content" hidden>
             <div class="calendar-subgrid" style="margin-top:16px;">
               <article class="event card">
-                <time datetime="2025-05">Mai 2025</time>
+                <time datetime="2025-05">April / Mai 2025</time>
                 <div>
-                  <h3><em>Weill: Aufstieg und Fall der Stadt Mahagonny</em> — Fünfte Mädchen</h3>
+                  <h3><em>Weill: Aufstieg und Fall der Stadt Mahagonny</em> — Fünftes Mädchen</h3>
                   <p class="lead">Staatsoper Stuttgart</p>
+                </div>
+                <div class="accordion-details">
+                  <ul>
+                    <li><strong>Vorstellungen:</strong> 16., 19., 22., 26., 29. April &amp; 9. Mai 2025</li>
+                    <li><strong>Musikalische Leitung:</strong> Michele Gamba</li>
+                    <li><strong>Inszenierung:</strong> Ulrike Schwab</li>
+                  </ul>
                 </div>
               </article>
 
@@ -1861,37 +1982,70 @@
                   <h3><em>Gluck: Orfeo ed Euridice</em> — Euridice</h3>
                   <p class="lead">Kammeroper Weißenhorn</p>
                 </div>
-              </article>
-
-              <article class="event card">
-                <time datetime="2024-06">Juni 2024</time>
-                <div>
-                  <h3><em>Weill: Aufstieg und Fall der Stadt Mahagonny</em> — Fünfte Mädchen</h3>
-                  <p class="lead">Staatsoper Stuttgart</p>
+                <div class="accordion-details">
+                  <ul>
+                    <li><strong>Musikalische Leitung:</strong> Eufemia Manfredi</li>
+                    <li><strong>Inszenierung:</strong> Diana Haller</li>
+                  </ul>
                 </div>
               </article>
 
               <article class="event card">
-                <time datetime="2023-07">Juli 2023</time>
+                <time datetime="2024-06">Mai / Juni 2024</time>
+                <div>
+                  <h3><em>Weill: Aufstieg und Fall der Stadt Mahagonny</em> — Fünftes Mädchen</h3>
+                  <p class="lead">Staatsoper Stuttgart</p>
+                </div>
+                <div class="accordion-details">
+                  <ul>
+                    <li><strong>Vorstellungen:</strong> 11., 15., 26., 28. Mai &amp; 1., 8., 11., 29. Juni 2024</li>
+                    <li><strong>Musikalische Leitung:</strong> Cornelius Meister, Luka Hauser</li>
+                    <li><strong>Inszenierung:</strong> Ulrike Schwab</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="event card">
+                <time datetime="2023-07">Juni / Juli 2023</time>
                 <div>
                   <h3><em>Poulenc: Dialogues des Carmélites</em> — Madame de Croissy</h3>
                   <p class="lead">Wilhelma Theater Stuttgart</p>
                 </div>
+                <div class="accordion-details">
+                  <ul>
+                    <li><strong>Vorstellungen:</strong> 8., 10., 12., 14., 16., 26., 28., 30. Juni 2023</li>
+                    <li><strong>Musikalische Leitung:</strong> Bernhard Epstein</li>
+                    <li><strong>Inszenierung:</strong> Franziska Severin</li>
+                  </ul>
+                </div>
               </article>
 
               <article class="event card">
-                <time datetime="2021-11">November 2021</time>
+                <time datetime="2021-11">Oktober / November 2021</time>
                 <div>
                   <h3><em>Puccini: La Rondine</em> — Suzy</h3>
-                  <p class="lead">Nationaltheater Zagreb</p>
+                  <p class="lead">Kroatisches Nationaltheater Zagreb</p>
+                </div>
+                <div class="accordion-details">
+                  <ul>
+                    <li><strong>Vorstellungen:</strong> 28., 30. Oktober &amp; 8. November 2021</li>
+                    <li><strong>Musikalische Leitung:</strong> Lorenzo Passerini</li>
+                    <li><strong>Inszenierung:</strong> Hugo de Ana</li>
+                  </ul>
                 </div>
               </article>
 
               <article class="event card">
                 <time datetime="2021-07">Juli 2021</time>
                 <div>
-                  <h3><em>Mozart: Le nozze di Figaro</em> („Priča o ljubavi”) — Marcellina</h3>
-                  <p class="lead">Nationaltheater Zagreb</p>
+                  <h3><em>Mozart: Le nozze di Figaro</em> („Priča o ljubavi“) — Marcellina</h3>
+                  <p class="lead">Kroatisches Nationaltheater Zagreb</p>
+                </div>
+                <div class="accordion-details">
+                  <ul>
+                    <li><strong>Musikalische Leitung:</strong> Lana Bradić</li>
+                    <li><strong>Inszenierung:</strong> Giorgio Surian</li>
+                  </ul>
                 </div>
               </article>
             </div>
@@ -1914,53 +2068,53 @@
           <div class="rep-col" data-lang-section="en">
             <h3>Opera (EN)</h3>
             <ul class="rep-role-list">
-              <li>Berg: <em>Lulu</em> — Countess Geschwitz</li>
-              <li>Bizet: <em>Carmen</em> — Carmen</li>
-              <li>Donizetti: <em>Roberto Devereux</em> — Sara</li>
-              <li>Gounod: <em>Faust</em> — Siébel</li>
-              <li>Gluck: <em>Orfeo ed Euridice</em> — Euridice</li>
-              <li>Humperdinck: <em>Hänsel und Gretel</em> — Hänsel</li>
-              <li>Mascagni: <em>L’amico Fritz</em> — Beppe</li>
-              <li>Massenet: <em>Werther</em> — Charlotte</li>
-              <li>Massenet: <em>Cendrillon</em> — Dorothée</li>
-              <li>Mozart: <em>Così fan tutte</em> — Dorabella</li>
-              <li>Mozart: <em>Die Zauberflöte</em> — Second Lady</li>
-              <li>Mozart: <em>Idomeneo</em> — Idamante</li>
-              <li>Mozart: <em>Le nozze di Figaro</em> — Cherubino</li>
-              <li>Mozart: <em>Le nozze di Figaro</em> — Marcellina</li>
-              <li>Poulenc: <em>Dialogues des Carmélites</em> — Mme de Croissy</li>
-              <li>Purcell: <em>Dido and Aeneas</em> — Dido</li>
-              <li>Purcell: <em>Dido and Aeneas</em> — The Sorceress</li>
-              <li>Puccini: <em>La rondine</em> — Suzy / Lolette</li>
-              <li>Strauss, J.: <em>Die Fledermaus</em> — Prince Orlofsky</li>
-              <li>Tchaikovsky: <em>Pikovaya Dama (Queen of Spades)</em> — Polina</li>
-              <li>Weill: <em>Aufstieg und Fall der Stadt Mahagonny</em> — Fifth Girl</li>
+              <li><span class="rep-composer">Berg</span> | <span class="rep-work"><em>Lulu</em></span> | <span class="rep-role">Countess Geschwitz</span></li>
+              <li><span class="rep-composer">Bizet</span> | <span class="rep-work"><em>Carmen</em></span> | <span class="rep-role">Carmen</span></li>
+              <li><span class="rep-composer">Donizetti</span> | <span class="rep-work"><em>Roberto Devereux</em></span> | <span class="rep-role">Sara</span></li>
+              <li><span class="rep-composer">Gounod</span> | <span class="rep-work"><em>Faust</em></span> | <span class="rep-role">Siébel</span></li>
+              <li><span class="rep-composer">Gluck</span> | <span class="rep-work"><em>Orfeo ed Euridice</em></span> | <span class="rep-role">Euridice</span></li>
+              <li><span class="rep-composer">Humperdinck</span> | <span class="rep-work"><em>Hänsel und Gretel</em></span> | <span class="rep-role">Hänsel</span></li>
+              <li><span class="rep-composer">Mascagni</span> | <span class="rep-work"><em>L’amico Fritz</em></span> | <span class="rep-role">Beppe</span></li>
+              <li><span class="rep-composer">Massenet</span> | <span class="rep-work"><em>Werther</em></span> | <span class="rep-role">Charlotte</span></li>
+              <li><span class="rep-composer">Massenet</span> | <span class="rep-work"><em>Cendrillon</em></span> | <span class="rep-role">Dorothée</span></li>
+              <li><span class="rep-composer">Mozart</span> | <span class="rep-work"><em>Così fan tutte</em></span> | <span class="rep-role">Dorabella</span></li>
+              <li><span class="rep-composer">Mozart</span> | <span class="rep-work"><em>Die Zauberflöte</em></span> | <span class="rep-role">Second Lady</span></li>
+              <li><span class="rep-composer">Mozart</span> | <span class="rep-work"><em>Idomeneo</em></span> | <span class="rep-role">Idamante</span></li>
+              <li><span class="rep-composer">Mozart</span> | <span class="rep-work"><em>Le nozze di Figaro</em></span> | <span class="rep-role">Cherubino</span></li>
+              <li><span class="rep-composer">Mozart</span> | <span class="rep-work"><em>Le nozze di Figaro</em></span> | <span class="rep-role">Marcellina</span></li>
+              <li><span class="rep-composer">Poulenc</span> | <span class="rep-work"><em>Dialogues des Carmélites</em></span> | <span class="rep-role">Mme de Croissy</span></li>
+              <li><span class="rep-composer">Purcell</span> | <span class="rep-work"><em>Dido and Aeneas</em></span> | <span class="rep-role">Dido</span></li>
+              <li><span class="rep-composer">Purcell</span> | <span class="rep-work"><em>Dido and Aeneas</em></span> | <span class="rep-role">The Sorceress</span></li>
+              <li><span class="rep-composer">Puccini</span> | <span class="rep-work"><em>La rondine</em></span> | <span class="rep-role">Suzy / Lolette</span></li>
+              <li><span class="rep-composer">Strauss, J.</span> | <span class="rep-work"><em>Die Fledermaus</em></span> | <span class="rep-role">Prince Orlofsky</span></li>
+              <li><span class="rep-composer">Tchaikovsky</span> | <span class="rep-work"><em>Pikovaya Dama (Queen of Spades)</em></span> | <span class="rep-role">Polina</span></li>
+              <li><span class="rep-composer">Weill</span> | <span class="rep-work"><em>Aufstieg und Fall der Stadt Mahagonny</em></span> | <span class="rep-role">Fifth Girl</span></li>
             </ul>
           </div>
           <div class="rep-col" data-lang-section="de" style="display:none;">
             <h3>Oper (DE)</h3>
             <ul class="rep-role-list">
-              <li>Berg: <em>Lulu</em> — Gräfin Geschwitz</li>
-              <li>Bizet: <em>Carmen</em> — Carmen</li>
-              <li>Donizetti: <em>Roberto Devereux</em> — Sara</li>
-              <li>Gounod: <em>Faust</em> — Siébel</li>
-              <li>Gluck: <em>Orfeo ed Euridice</em> — Euridice</li>
-              <li>Humperdinck: <em>Hänsel und Gretel</em> — Hänsel</li>
-              <li>Mascagni: <em>L’amico Fritz</em> — Beppe</li>
-              <li>Massenet: <em>Werther</em> — Charlotte</li>
-              <li>Massenet: <em>Cendrillon</em> — Dorothée</li>
-              <li>Mozart: <em>Così fan tutte</em> — Dorabella</li>
-              <li>Mozart: <em>Die Zauberflöte</em> — Zweite Dame</li>
-              <li>Mozart: <em>Idomeneo</em> — Idamante</li>
-              <li>Mozart: <em>Le nozze di Figaro</em> — Cherubino</li>
-              <li>Mozart: <em>Le nozze di Figaro</em> — Marcellina</li>
-              <li>Poulenc: <em>Dialogues des Carmélites</em> — Mme de Croissy</li>
-              <li>Purcell: <em>Dido and Aeneas</em> — Dido</li>
-              <li>Purcell: <em>Dido and Aeneas</em> — Die Zauberin</li>
-              <li>Puccini: <em>La Rondine</em> — Suzy / Lolette</li>
-              <li>Strauss, J.: <em>Die Fledermaus</em> — Prinz Orlofsky</li>
-              <li>Tschaikowsky: <em>Pique Dame</em> — Polina</li>
-              <li>Weill: <em>Aufstieg und Fall der Stadt Mahagonny</em> — Fünftes Mädchen</li>
+              <li><span class="rep-composer">Berg</span> | <span class="rep-work"><em>Lulu</em></span> | <span class="rep-role">Gräfin Geschwitz</span></li>
+              <li><span class="rep-composer">Bizet</span> | <span class="rep-work"><em>Carmen</em></span> | <span class="rep-role">Carmen</span></li>
+              <li><span class="rep-composer">Donizetti</span> | <span class="rep-work"><em>Roberto Devereux</em></span> | <span class="rep-role">Sara</span></li>
+              <li><span class="rep-composer">Gounod</span> | <span class="rep-work"><em>Faust</em></span> | <span class="rep-role">Siébel</span></li>
+              <li><span class="rep-composer">Gluck</span> | <span class="rep-work"><em>Orfeo ed Euridice</em></span> | <span class="rep-role">Euridice</span></li>
+              <li><span class="rep-composer">Humperdinck</span> | <span class="rep-work"><em>Hänsel und Gretel</em></span> | <span class="rep-role">Hänsel</span></li>
+              <li><span class="rep-composer">Mascagni</span> | <span class="rep-work"><em>L’amico Fritz</em></span> | <span class="rep-role">Beppe</span></li>
+              <li><span class="rep-composer">Massenet</span> | <span class="rep-work"><em>Werther</em></span> | <span class="rep-role">Charlotte</span></li>
+              <li><span class="rep-composer">Massenet</span> | <span class="rep-work"><em>Cendrillon</em></span> | <span class="rep-role">Dorothée</span></li>
+              <li><span class="rep-composer">Mozart</span> | <span class="rep-work"><em>Così fan tutte</em></span> | <span class="rep-role">Dorabella</span></li>
+              <li><span class="rep-composer">Mozart</span> | <span class="rep-work"><em>Die Zauberflöte</em></span> | <span class="rep-role">Zweite Dame</span></li>
+              <li><span class="rep-composer">Mozart</span> | <span class="rep-work"><em>Idomeneo</em></span> | <span class="rep-role">Idamante</span></li>
+              <li><span class="rep-composer">Mozart</span> | <span class="rep-work"><em>Le nozze di Figaro</em></span> | <span class="rep-role">Cherubino</span></li>
+              <li><span class="rep-composer">Mozart</span> | <span class="rep-work"><em>Le nozze di Figaro</em></span> | <span class="rep-role">Marcellina</span></li>
+              <li><span class="rep-composer">Poulenc</span> | <span class="rep-work"><em>Dialogues des Carmélites</em></span> | <span class="rep-role">Mme de Croissy</span></li>
+              <li><span class="rep-composer">Purcell</span> | <span class="rep-work"><em>Dido and Aeneas</em></span> | <span class="rep-role">Dido</span></li>
+              <li><span class="rep-composer">Purcell</span> | <span class="rep-work"><em>Dido and Aeneas</em></span> | <span class="rep-role">Die Zauberin</span></li>
+              <li><span class="rep-composer">Puccini</span> | <span class="rep-work"><em>La Rondine</em></span> | <span class="rep-role">Suzy / Lolette</span></li>
+              <li><span class="rep-composer">Strauss, J.</span> | <span class="rep-work"><em>Die Fledermaus</em></span> | <span class="rep-role">Prinz Orlofsky</span></li>
+              <li><span class="rep-composer">Tschaikowsky</span> | <span class="rep-work"><em>Pique Dame</em></span> | <span class="rep-role">Polina</span></li>
+              <li><span class="rep-composer">Weill</span> | <span class="rep-work"><em>Aufstieg und Fall der Stadt Mahagonny</em></span> | <span class="rep-role">Fünftes Mädchen</span></li>
             </ul>
           </div>
         </div>
@@ -2405,36 +2559,6 @@ langButtons.forEach(btn =>
   setLang(initial);
 })();
 
-function enhanceRepertoireItems() {
-  document.querySelectorAll('.rep-role-list li').forEach(li => {
-    if (li.dataset.enhanced === 'true') return;
-    const em = li.querySelector('em');
-    const text = li.textContent || '';
-
-    if (!em || !text.includes('—')) {
-      li.innerHTML = `<span class="rep-simple-item">${li.innerHTML}</span>`;
-      li.dataset.enhanced = 'true';
-      return;
-    }
-
-    const composer = text.split(':')[0]?.trim();
-    const work = em.innerHTML.trim();
-    const role = text.split('—').slice(1).join('—').trim();
-
-    if (!composer || !work || !role) return;
-
-    li.innerHTML = `
-      <div class="rep-item-grid">
-        <span class="rep-composer">${composer}</span>
-        <span class="rep-work"><em>${work}</em></span>
-        <span class="rep-role">${role}</span>
-      </div>
-    `;
-    li.dataset.enhanced = 'true';
-  });
-}
-
-enhanceRepertoireItems();
 
 function setupRevealAnimations() {
   const revealSelectors = [
@@ -2521,6 +2645,74 @@ setupRepToggle('[data-collapse="opera"]','opera-content');
 setupRepToggle('[data-collapse="concert"]','concert-content');
 setupRepToggle('[data-collapse="past-en"]','past-en-content');
 setupRepToggle('[data-collapse="past-de"]','past-de-content');
+
+function setupRepertoireCardClose() {
+  document.querySelectorAll('#repertoire .rep-col').forEach(card => {
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', 'Close this repertoire section');
+
+    const closeSection = () => {
+      const content = card.closest('.rep-content');
+      if (!content) return;
+
+      const btn = document.querySelector(`[aria-controls="${content.id}"]`);
+      if (!btn) return;
+
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      content.classList.remove('open');
+      content.hidden = true;
+    };
+
+    card.addEventListener('click', closeSection);
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        closeSection();
+      }
+    });
+  });
+}
+
+setupRepertoireCardClose();
+
+function setupSimpleAccordion(selector, detailsHTML = ""){
+  document.querySelectorAll(selector).forEach((card) => {
+    let details = card.querySelector('.accordion-details');
+
+    if (!details && detailsHTML.trim()) {
+      details = document.createElement('div');
+      details.className = 'accordion-details';
+      details.innerHTML = detailsHTML;
+      card.appendChild(details);
+    }
+
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-expanded', 'false');
+
+    const toggle = () => {
+      const isOpen = card.classList.toggle('accordion-open');
+      card.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
+
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('a, button, input, textarea')) return;
+      toggle();
+    });
+
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggle();
+      }
+    });
+  });
+}
+
+setupSimpleAccordion('.event.card');
+
 
 const lightboxEl = document.getElementById('lightbox');
 const lightboxImgEl = document.getElementById('lightbox-img');
