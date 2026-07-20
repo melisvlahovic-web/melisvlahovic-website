@@ -79,27 +79,11 @@
   }
   </script>
 
-  <script>
-    (function () {
-      const root = document.documentElement;
-      const showPage = () => root.classList.remove('preload');
-
-      if ('fonts' in document) {
-        Promise.race([
-          document.fonts.ready,
-          new Promise(resolve => setTimeout(resolve, 1200))
-        ]).then(showPage);
-      } else {
-        window.addEventListener('load', showPage);
-      }
-    })();
-  </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="preload" as="image" href="images/bg.jpg?v=20251103">
+  <link rel="preload" as="image" href="images/bg.jpg?v=20251103" fetchpriority="high">
 
   <style>
   :root {
@@ -1771,25 +1755,6 @@
         <h3 class="calendar-group-title" data-i18n="calendar_upcoming">Upcoming Performances</h3>
         <div class="calendar-subgrid">
           <article class="event card" itemscope itemtype="https://schema.org/Event">
-            <time itemprop="startDate" datetime="2026-06">June / July 2026</time>
-            <div>
-              <h3 itemprop="name"><em>Die Meistersinger von Nürnberg</em> — Lehrbuben</h3>
-              <p class="lead">
-                <span itemprop="location" itemscope itemtype="https://schema.org/Place">
-                  <span itemprop="name">Theater Ulm</span>
-                </span>
-              </p>
-            </div>
-            <div class="accordion-details">
-              <ul>
-                <li><strong>Performances:</strong> 4, 7, 13, 21, 27 June &amp; 5 July 2026</li>
-                <li><strong>Conductor:</strong> Felix Bender</li>
-                <li><strong>Director:</strong> Kay Metzger</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="event card" itemscope itemtype="https://schema.org/Event">
             <time itemprop="startDate" datetime="2026-10">October 2026</time>
             <div>
               <h3 itemprop="name">Wagner: <em>Der Ring 2.0</em> — Wellgunde / Second Norn</h3>
@@ -1818,6 +1783,21 @@
 
           <div class="rep-content" id="past-en-content" hidden>
             <div class="calendar-subgrid" style="margin-top:16px;">
+          <article class="event card">
+            <time datetime="2026-06">June / July 2026</time>
+            <div>
+              <h3><em>Die Meistersinger von Nürnberg</em> — Lehrbuben</h3>
+              <p class="lead">Theater Ulm</p>
+            </div>
+            <div class="accordion-details">
+              <ul>
+                <li><strong>Performances:</strong> 4, 7, 13, 21, 27 June &amp; 5 July 2026</li>
+                <li><strong>Conductor:</strong> Felix Bender</li>
+                <li><strong>Director:</strong> Kay Metzger</li>
+              </ul>
+            </div>
+          </article>
+
               <article class="event card">
                 <time datetime="2025-05">April / May 2025</time>
                 <div>
@@ -1914,25 +1894,6 @@
         <h3 class="calendar-group-title" data-i18n="calendar_upcoming">Kommende Termine</h3>
         <div class="calendar-subgrid">
           <article class="event card" itemscope itemtype="https://schema.org/Event">
-            <time itemprop="startDate" datetime="2026-06">Juni / Juli 2026</time>
-            <div>
-              <h3 itemprop="name"><em>Die Meistersinger von Nürnberg</em> — Lehrbuben</h3>
-              <p class="lead">
-                <span itemprop="location" itemscope itemtype="https://schema.org/Place">
-                  <span itemprop="name">Theater Ulm</span>
-                </span>
-              </p>
-            </div>
-            <div class="accordion-details">
-              <ul>
-                <li><strong>Vorstellungen:</strong> 4., 7., 13., 21., 27. Juni &amp; 5. Juli 2026</li>
-                <li><strong>Musikalische Leitung:</strong> Felix Bender</li>
-                <li><strong>Inszenierung:</strong> Kay Metzger</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="event card" itemscope itemtype="https://schema.org/Event">
             <time itemprop="startDate" datetime="2026-10">Oktober 2026</time>
             <div>
               <h3 itemprop="name">Wagner: <em>Der Ring 2.0</em> — Wellgunde / Zweite Norne</h3>
@@ -1961,6 +1922,21 @@
 
           <div class="rep-content" id="past-de-content" hidden>
             <div class="calendar-subgrid" style="margin-top:16px;">
+          <article class="event card">
+            <time datetime="2026-06">Juni / Juli 2026</time>
+            <div>
+              <h3><em>Die Meistersinger von Nürnberg</em> — Lehrbuben</h3>
+              <p class="lead">Theater Ulm</p>
+            </div>
+            <div class="accordion-details">
+              <ul>
+                <li><strong>Vorstellungen:</strong> 4., 7., 13., 21., 27. Juni &amp; 5. Juli 2026</li>
+                <li><strong>Musikalische Leitung:</strong> Felix Bender</li>
+                <li><strong>Inszenierung:</strong> Kay Metzger</li>
+              </ul>
+            </div>
+          </article>
+
               <article class="event card">
                 <time datetime="2025-05">April / Mai 2025</time>
                 <div>
@@ -2087,7 +2063,7 @@
               <li><span class="rep-composer">Purcell</span> | <span class="rep-work"><em>Dido and Aeneas</em></span> | <span class="rep-role">The Sorceress</span></li>
               <li><span class="rep-composer">Puccini</span> | <span class="rep-work"><em>La rondine</em></span> | <span class="rep-role">Suzy / Lolette</span></li>
               <li><span class="rep-composer">Strauss, J.</span> | <span class="rep-work"><em>Die Fledermaus</em></span> | <span class="rep-role">Prince Orlofsky</span></li>
-              <li><span class="rep-composer">Tchaikovsky</span> | <span class="rep-work"><em>Pikovaya Dama (Queen of Spades)</em></span> | <span class="rep-role">Polina</span></li>
+              <li><span class="rep-composer">Tchaikovsky</span> | <span class="rep-work"><em>Eugene Onegin</em></span> | <span class="rep-role">Olga</span></li>
               <li><span class="rep-composer">Weill</span> | <span class="rep-work"><em>Aufstieg und Fall der Stadt Mahagonny</em></span> | <span class="rep-role">Fifth Girl</span></li>
             </ul>
           </div>
@@ -2113,7 +2089,7 @@
               <li><span class="rep-composer">Purcell</span> | <span class="rep-work"><em>Dido and Aeneas</em></span> | <span class="rep-role">Die Zauberin</span></li>
               <li><span class="rep-composer">Puccini</span> | <span class="rep-work"><em>La Rondine</em></span> | <span class="rep-role">Suzy / Lolette</span></li>
               <li><span class="rep-composer">Strauss, J.</span> | <span class="rep-work"><em>Die Fledermaus</em></span> | <span class="rep-role">Prinz Orlofsky</span></li>
-              <li><span class="rep-composer">Tschaikowsky</span> | <span class="rep-work"><em>Pique Dame</em></span> | <span class="rep-role">Polina</span></li>
+              <li><span class="rep-composer">Tschaikowsky</span> | <span class="rep-work"><em>Eugen Onegin</em></span> | <span class="rep-role">Olga</span></li>
               <li><span class="rep-composer">Weill</span> | <span class="rep-work"><em>Aufstieg und Fall der Stadt Mahagonny</em></span> | <span class="rep-role">Fünftes Mädchen</span></li>
             </ul>
           </div>
