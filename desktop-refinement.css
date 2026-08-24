@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap');
+
+@media (min-width: 981px) {
+  header.nav {
+    height: 64px;
+    background: rgba(5, 5, 5, .78);
+    border-bottom: 1px solid rgba(255, 255, 255, .07);
+    backdrop-filter: blur(10px);
+  }
+
+  header.nav .container {
+    max-width: 100%;
+    padding-inline: 48px;
+  }
+
+  .nav-inner {
+    min-height: 64px;
+  }
+
+  .brand-mark {
+    width: 54px;
+    height: 54px;
+  }
+
+  .brand-mark img {
+    display: block;
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    filter: invert(1);
+    opacity: .94;
+  }
+
+  nav.top-nav {
+    margin-right: 102px;
+  }
+
+  nav.top-nav ul {
+    gap: 27px;
+  }
+
+  nav.top-nav a {
+    padding: 24px 0 22px;
+    font-family: "Inter", sans-serif;
+    font-size: .78rem;
+    font-weight: 300;
+    letter-spacing: .055em;
+  }
+
+  .nav-right-row {
+    top: 21px;
+    right: 48px;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding-top: 64px;
+  }
+
+  .hero::before {
+    inset: 64px 0 0;
+    background-position: center 48%;
+    background-image:
+      linear-gradient(90deg, rgba(0, 0, 0, .16), rgba(0, 0, 0, .02) 48%, rgba(0, 0, 0, .18)),
+      url("images/bg.jpg?v=20251103");
+  }
+
+  .hero::after {
+    height: 45%;
+    background: linear-gradient(to top, rgba(0, 0, 0, .58), transparent 82%);
+  }
+
+  .hero-inner {
+    position: absolute;
+    top: 31%;
+    right: 5.5vw;
+    width: min(390px, 28vw);
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  }
+
+  .hero-name-block {
+    max-width: none;
+    line-height: .9;
+    text-align: right;
+  }
+
+  .hero-name-main {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(3.2rem, 4.6vw, 5.3rem);
+    font-weight: 300;
+    line-height: .82;
+    letter-spacing: .015em;
+    text-shadow: 0 2px 22px rgba(0, 0, 0, .45);
+  }
+
+  .hero-name-main .hero-initial,
+  .hero-name-main .rest-name {
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+  }
+
+  .hero-name-part + .hero-name-part {
+    margin-top: .05em;
+  }
+
+  .hero-name-role {
+    margin-top: 20px;
+    font-family: "Inter", sans-serif;
+    font-size: .67rem;
+    font-weight: 300;
+    letter-spacing: .36em;
+  }
+
+  .hero-lines {
+    display: none;
+  }
+
+  .hero .cta-row {
+    justify-content: flex-end;
+    gap: 22px;
+    margin-top: 28px;
+  }
+
+  .hero .btn,
+  .hero .btn.secondary {
+    padding-bottom: 7px;
+    border-bottom-color: rgba(255, 255, 255, .34);
+    font-size: .62rem;
+    font-weight: 400;
+    letter-spacing: .13em;
+  }
+
+  body.inner-page main {
+    padding-top: 64px;
+  }
+}
+
+/* =========================================================
+   TYPOGRAPHY REVISION — 2026-08-17
+   Cormorant Garamond becomes the site's primary display identity.
+   Long-form body copy remains Inter for readability.
+   ========================================================= */
+
+:root {
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-elegant: var(--font-display);
+}
+
+/* Primary identity/display typography across the full site */
+nav.top-nav a,
+.lang-switcher-top button,
+.hero-name-block,
+.hero-name-main,
+.hero-name-role,
+.hero-lines,
+.btn,
+.btn.secondary,
+section.std-section h2,
+.calendar-group-title,
+.rep-header-btn,
+.rep-col h3,
+.event.card h3,
+.accordion-hint,
+.bar h3,
+.video-card-title,
+.contact-card h3,
+.contact-media-list h4,
+.mini-video-title,
+.legal-link,
+.legal-card h3,
+footer,
+label {
+  font-family: var(--font-display);
+}
+
+/* Refined all-caps/editorial treatment for navigation and UI labels */
+nav.top-nav a,
+.lang-switcher-top button,
+.hero-name-role,
+.hero-lines,
+.btn,
+.btn.secondary,
+.calendar-group-title,
+.rep-header-btn,
+.rep-col h3,
+.accordion-hint,
+.bar h3,
+.contact-card h3,
+.contact-media-list h4,
+.legal-link,
+.legal-card h3,
+label {
+  font-weight: 400;
+}
+
+/* Keep long reading text in the cleaner companion face */
+body,
+p,
+li,
+.bio-text-col,
+.bio-highlights-card,
+.lead,
+.lead-small,
+.video-card-text,
+.mini-video-text,
+.recordings-note,
+input,
+textarea {
+  font-family: var(--font-sans);
+}
+
+/* Homepage signature: same exact font, slightly more presence */
+@media (min-width: 981px) {
+  .hero-name-main {
+    font-family: var(--font-display);
+    font-size: clamp(3.45rem, 4.95vw, 5.75rem);
+    font-weight: 300;
+  }
+
+  nav.top-nav a {
+    font-family: var(--font-display);
+    font-size: .84rem;
+    font-weight: 400;
+    letter-spacing: .075em;
+  }
+
+  .hero-name-role {
+    font-family: var(--font-display);
+    font-size: .72rem;
+    font-weight: 400;
+    letter-spacing: .34em;
+  }
+
+  .hero .btn,
+  .hero .btn.secondary {
+    font-family: var(--font-display);
+    font-size: .69rem;
+    font-weight: 400;
+    letter-spacing: .14em;
+  }
+}
+
+/* Keep the same typographic identity on smaller screens too */
+@media (max-width: 980px) {
+  .hero-name-main {
+    font-family: var(--font-display);
+    font-weight: 300;
+  }
+
+  nav.top-nav a,
+  .hero-name-role,
+  .btn,
+  .btn.secondary,
+  section.std-section h2 {
+    font-family: var(--font-display);
+  }
+}
+
+/* =========================================================
+   HEADER NAV TYPOGRAPHY REFINEMENT — clearer / slightly larger
+   2026-08-17
+   ========================================================= */
+@media (min-width: 981px) {
+  nav.top-nav a {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: .94rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: .055em;
+    color: rgba(255, 255, 255, .92);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+
+  .lang-switcher-top button {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: .80rem;
+    font-weight: 500;
+    letter-spacing: .07em;
+    color: rgba(255, 255, 255, .82);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .lang-switcher-top button.active {
+    color: #fff;
+  }
+}
