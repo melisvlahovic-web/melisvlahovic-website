@@ -2,7 +2,10 @@
 <html lang="en" class="preload">
 <head>
   <link rel="icon" type="image/png" href="images/logo.png">
-
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/favicon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -2141,13 +2144,13 @@
     max-width: 1180px !important;
     margin: 0 auto !important;
     display: grid !important;
-    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 26px !important;
     align-items: start !important;
   }
 
   body.page-recordings .recordings-grid-five .recording-video-card {
-    grid-column: span 2;
+    grid-column: auto;
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
@@ -2157,14 +2160,6 @@
     border-radius: 0 !important;
     box-shadow: none !important;
     overflow: visible !important;
-  }
-
-  body.page-recordings .recordings-grid-five .recording-video-card:nth-child(4) {
-    grid-column: 2 / span 2;
-  }
-
-  body.page-recordings .recordings-grid-five .recording-video-card:nth-child(5) {
-    grid-column: 4 / span 2;
   }
 
   body.page-recordings .recording-video-card .video-thumb {
@@ -2247,11 +2242,6 @@
       grid-column: auto !important;
     }
 
-    body.page-recordings .recordings-grid-five .recording-video-card:last-child {
-      grid-column: 1 / -1 !important;
-      width: min(100%, 520px) !important;
-      justify-self: center !important;
-    }
   }
 
   @media (max-width: 620px) {
@@ -2260,10 +2250,6 @@
       gap: 26px !important;
     }
 
-    body.page-recordings .recordings-grid-five .recording-video-card:last-child {
-      grid-column: auto !important;
-      width: 100% !important;
-    }
   }
 </style>
 
@@ -2863,7 +2849,7 @@
   body.page-recordings {
     background:
       linear-gradient(rgba(3,3,3,.78), rgba(3,3,3,.86)),
-      url("images/staircase-abstract-bg.png") center center / cover fixed no-repeat !important;
+      url("images/staircase-abstract-bg-web.jpg") center center / cover fixed no-repeat !important;
     background-color: #050505 !important;
   }
 
@@ -3496,6 +3482,16 @@
         <div class="video-card-body">
           <h3 class="video-card-title">Charlotte — Va! Laisse couler mes larmes</h3>
           <p class="video-card-text"><em>Werther</em> · Jules Massenet</p>
+        </div>
+      </a>
+
+      <a class="video-card recording-video-card" href="https://youtu.be/lznIa6UvOVs?si=_q24hNhqUiuk7FO8" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/lznIa6UvOVs/hqdefault.jpg" alt="Video thumbnail" loading="lazy">
+        </div>
+        <div class="video-card-body">
+          <h3 class="video-card-title">Idamante — Ah! Qual gelido orror... Il padre adorato</h3>
+          <p class="video-card-text"><em>Idomeneo</em> · W. A. Mozart</p>
         </div>
       </a>
 
